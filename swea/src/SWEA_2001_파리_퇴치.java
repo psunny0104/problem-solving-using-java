@@ -27,13 +27,8 @@ public class SWEA_2001_파리_퇴치 {
             }
 
             int answer = 0;
-            for(int i = 0; i < n; i++) {
-                if (i + m > n)
-                    continue;
-                for (int j = 0; j < n; j++) {
-                    if (j + m > n)
-                        break;
-
+            for(int i = 0; i <= n - m; i++) {
+                for (int j = 0; j <= n - m; j++) {
                     int sum = 0;
                     for (int mi = i; mi < i + m; mi++) {
                         for (int mj = j; mj < j + m; mj++) {
