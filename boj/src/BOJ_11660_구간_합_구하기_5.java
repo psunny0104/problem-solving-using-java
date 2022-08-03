@@ -1,94 +1,58 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_11660_구간_합_구하기_5 {
+
     public static void main(String[] args) throws IOException {
-        //firstSolution();
-        secondSolution();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer in = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
+
+        int size = Integer.parseInt(in.nextToken());
+        int tc = Integer.parseInt(in.nextToken());
+        int[][] numbers = new int[size + 1][size + 1];
+        int[][] sumMatrix = new int[size + 1][size + 1];
+
+        for(int i = 1; i <= size; i++) {
+            in = new StringTokenizer(br.readLine());
+            for(int j = 1; j <= size; j++) {
+                numbers[i][j] = Integer.parseInt(in.nextToken());
+            }
+        }
+
+        makeSumMatrix(size, numbers, sumMatrix);
+
+        for(int t = 1; t <= tc; t++) {
+            in = new StringTokenizer(br.readLine());
+            int stY = Integer.parseInt(in.nextToken());
+            int stX = Integer.parseInt(in.nextToken());
+            int edY = Integer.parseInt(in.nextToken());
+            int edX = Integer.parseInt(in.nextToken());
+
+            int answer = getSum(stX, stY, edX, edY, sumMatrix);
+            sb.append(answer).append("\n");
+        }
+        System.out.println(sb);
+
     }
 
-    private static void firstSolution() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer input = new StringTokenizer(br.readLine());
-        StringBuilder answer = new StringBuilder();
-
-        int size = Integer.parseInt(input.nextToken());
-        int testCase = Integer.parseInt(input.nextToken());
-
-        int[][] matrixOfSum = new int[size + 1][size + 1];
-        matrixOfSum[0][0] = 0;
-
-        for (int i = 1; i <= size; i++) {
-            input = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= size; j++) {
-                matrixOfSum[i][j] = matrixOfSum[i][j - 1] + Integer.parseInt(input.nextToken());
-            }
+    private static void makeSumMatrix(int size, int[][] numbers, int[][] sumMatrix) {
+        for(int i = 0; i <= size; i++) {
+            sumMatrix[0][i] = 0;
+            sumMatrix[i][0] = 0;
         }
 
-        for (int t = 0; t < testCase; t++) {
-            int sum = 0;
-            input = new StringTokenizer(br.readLine());
-            int x1 = Integer.parseInt(input.nextToken());
-            int y1 = Integer.parseInt(input.nextToken());
-            int x2 = Integer.parseInt(input.nextToken());
-            int y2 = Integer.parseInt(input.nextToken());
-
-            for (int i = x1; i <= x2; i++) {
-                sum += matrixOfSum[i][y2] - matrixOfSum[i][y1 - 1];
+        for(int i = 1; i <= size; i++) {
+            for(int j = 1; j <= size; j++) {
+                sumMatrix[i][j] = sumMatrix[i - 1][j] + sumMatrix[i][j - 1] + numbers[i][j]- sumMatrix[i - 1][j - 1];
             }
-
-            answer.append(sum);
-            answer.append("\n");
         }
-
-        bw.write(answer.toString());
-        bw.flush();
-        bw.close();
-        br.close();
     }
 
-    private static void secondSolution() throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer input = new StringTokenizer(br.readLine());
-        StringBuilder answer = new StringBuilder();
-
-        int size = Integer.parseInt(input.nextToken());
-        int testCase = Integer.parseInt(input.nextToken());
-
-        int[][] matrixOfSum = new int[size + 1][size + 1];
-        matrixOfSum[0][0] = 0;
-
-        for (int i = 1; i <= size; i++) {
-            input = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= size; j++) {
-                matrixOfSum[i][j] = matrixOfSum[i][j - 1]
-                        + matrixOfSum[i - 1][j]
-                        - matrixOfSum[i - 1][j - 1]
-                        + Integer.parseInt(input.nextToken());
-            }
-        }
-
-        for (int t = 0; t < testCase; t++) {
-            input = new StringTokenizer(br.readLine());
-            int x1 = Integer.parseInt(input.nextToken());
-            int y1 = Integer.parseInt(input.nextToken());
-            int x2 = Integer.parseInt(input.nextToken());
-            int y2 = Integer.parseInt(input.nextToken());
-
-            int sum = matrixOfSum[x2][y2]
-                    - matrixOfSum[x1 - 1][y2]
-                    - matrixOfSum[x2][y1 - 1]
-                    + matrixOfSum[x1 - 1][y1 - 1];
-
-            answer.append(sum);
-            answer.append("\n");
-        }
-
-        bw.write(answer.toString());
-        bw.flush();
-        bw.close();
-        br.close();
+    private static int getSum(int stX, int stY, int edX, int edY, int[][] sumMatrix) {
+        int diff = sumMatrix[edY][edX] - sumMatrix[stY - 1][edX] - sumMatrix[edY][stX - 1] + sumMatrix[stY - 1][stX - 1];
+        return diff;
     }
 }
