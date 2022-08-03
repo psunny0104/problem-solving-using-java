@@ -1,52 +1,64 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class SWEA_2001_파리_퇴치 {
-    public static void main(String[] args) throws IOException {
-        firstSolution();
-    }
 
-    private static void firstSolution() throws IOException {
+    public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
+        StringTokenizer in;
+        int t = Integer.parseInt(br.readLine());
+        int[][] sumMatrix;
 
-        int tc = Integer.parseInt(br.readLine());
+        for (int tc = 1; tc <= t; tc++) {
+            in = new StringTokenizer(br.readLine(), " ");
+            int matrixSize = Integer.parseInt(in.nextToken());
+            int swatterSize = Integer.parseInt(in.nextToken());
 
-        for (int t = 1; t <= tc; t++) {
-            StringTokenizer in = new StringTokenizer(br.readLine());
-            int n = Integer.parseInt(in.nextToken());
-            int m = Integer.parseInt(in.nextToken());
-            int[][] map = new int[n][n];
+            sumMatrix = new int[matrixSize + 1][matrixSize + 1];
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i <= matrixSize; i++) {
+                sumMatrix[i][0] = sumMatrix[0][i] = 0;
+            }
+
+            for (int i = 1; i <= matrixSize; i++) {
                 in = new StringTokenizer(br.readLine());
-                for (int j = 0; j < n; j++) {
-                    map[i][j] = Integer.parseInt(in.nextToken());
+                for (int j = 1; j <= matrixSize; j++) {
+                    sumMatrix[i][j] = sumMatrix[i - 1][j] + sumMatrix[i][j - 1] - sumMatrix[i - 1][j - 1];
+                    sumMatrix[i][j] += Integer.parseInt(in.nextToken());
                 }
             }
 
             int answer = 0;
-            for(int i = 0; i <= n - m; i++) {
-                for (int j = 0; j <= n - m; j++) {
-                    int sum = 0;
-                    for (int mi = i; mi < i + m; mi++) {
-                        for (int mj = j; mj < j + m; mj++) {
-                            sum += map[mi][mj];
-                        }
-                    }
+            answer = searchMaxCnt(sumMatrix, matrixSize, swatterSize, answer);
 
-                    if (sum > answer) {
-                        answer = sum;
-                    }
-                }
-            }
-            sb.append("#").append(t).append(" ").append(answer).append("\n");
+            sb.append("#").append(tc).append(" ").append(answer).append("\n");
+
         }
-
-        bw.write(sb.toString());
-        bw.flush();
-        bw.close();
-        br.close();
+        System.out.print(sb);
     }
+
+    private static int searchMaxCnt(int[][] sumMatrix, int matrixSize, int swatterSize, int answer) {
+        int limit = matrixSize - swatterSize + 1;
+
+        for(int i = 1; i <= limit; i++) {
+            for(int j = 1; j <= limit; j++) {
+                int stY = i;
+                int stX = j;
+                int edY = i + swatterSize - 1;
+                int edX = j + swatterSize - 1;
+
+                answer = Math.max(getSum(stX, stY, edX, edY, sumMatrix), answer);
+            }
+        }
+        return answer;
+    }
+
+    private static int getSum(int stX, int stY, int edX, int edY, int[][] sumMatrix) {
+        int diff = sumMatrix[edY][edX] - sumMatrix[stY - 1][edX] - sumMatrix[edY][stX - 1] + sumMatrix[stY - 1][stX - 1];
+        return diff;
+    }
+
 }
