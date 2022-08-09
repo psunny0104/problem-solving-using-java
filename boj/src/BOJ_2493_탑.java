@@ -24,8 +24,9 @@ public class BOJ_2493_탑 {
                 if (curHeight < top.height) {
                     sb.append(top.idx).append(" ");
                     break;
+                } else {
+                    stack.pop();
                 }
-                stack.pop();
             }
 
             if (stack.isEmpty()) {
