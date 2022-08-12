@@ -18,13 +18,10 @@ public class BOJ_11286_절댓값_힙 {
         for (int i = 0; i < N; i++) {
             int input = Integer.parseInt(br.readLine());
 
-            switch (input) {
-                case 0:
-                    printMinValue();
-                    break;
-                default:
-                    pq.offer(input);
-                    break;
+            if (input == 0) {
+                printMinValue();
+            } else {
+                pq.offer(input);
             }
         }
         System.out.print(sb);
