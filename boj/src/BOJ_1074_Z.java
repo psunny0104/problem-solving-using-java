@@ -20,9 +20,6 @@ public class BOJ_1074_Z {
     }
 
     private static void dq(int r, int c, int n) {
-        if (r < 0 || c < 0 || r >= LEN || c >= LEN) {
-            return;
-        }
         if (n == 1) {
             System.out.println(cnt);
         } else if (n > 1) {
