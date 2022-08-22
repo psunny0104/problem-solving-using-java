@@ -2,83 +2,74 @@ import java.io.*;
 import java.util.*;
 
 public class SWEA_1238_Contact {
-    public static void main(String[] args) throws IOException {
-        firstSolution();
-    }
 
-    private static void firstSolution() throws IOException {
+    static int adjListCnt, startNode, MAX = 100;
+    static int[] dist;
+    static HashMap<Integer, ArrayList<Integer>> adjList;
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
         StringTokenizer in;
 
-        for (int t = 1; t <= 10; t++) {
+        for (int tc = 1; tc <= 10; tc++) {
             in = new StringTokenizer(br.readLine());
-            int size = Integer.parseInt(in.nextToken());
-            int start = Integer.parseInt(in.nextToken());
+            adjListCnt = Integer.parseInt(in.nextToken());
+            startNode = Integer.parseInt(in.nextToken());
+            adjList = new HashMap<>();
 
             in = new StringTokenizer(br.readLine());
-            HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
-            int edgeCnt = in.countTokens() / 2;
-
-            for (int i = 0; i < edgeCnt; i++) {
+            for (int i = 0; i < adjListCnt/2; i++) {
                 int from = Integer.parseInt(in.nextToken());
                 int to = Integer.parseInt(in.nextToken());
 
-                if (map.containsKey(from)) {
-                    map.get(from).add(to);
-                } else {
-                    ArrayList<Integer> target = new ArrayList<>();
-                    target.add(to);
-                    map.put(from, target);
-                }
+                adjList.computeIfAbsent(from, k -> new ArrayList<>());
+                adjList.get(from).add(to);
             }
 
-            int answer = bfs(map, start);
-            sb.append("#").append(t).append(" ").append(answer).append("\n");
+            int answer = bfs();
+            sb.append("#").append(tc).append(" ").append(answer).append("\n");
         }
-        bw.write(sb.toString());
-        bw.flush();
-        bw.close();
-        br.close();
+        System.out.print(sb);
     }
 
-    private static int bfs(HashMap<Integer, ArrayList<Integer>> map, int start) {
-        Queue<Integer> q = new LinkedList<>();
-        int[] chk = new int[101];
-        Arrays.fill(chk, 0);
-        q.add(start);
-        chk[start] = 1;
+    private static int bfs() {
+        dist = new int[MAX + 1];
+        dist[startNode] = 1;
+        Queue<Integer> q = new ArrayDeque<>();
+        q.offer(startNode);
+        int lastLevel = 0;
 
-        int lastCnt = 0;
         while (!q.isEmpty()) {
-            int node = q.poll();
-            if (!map.containsKey(node)) {
+            int cur = q.poll();
+            if (!adjList.containsKey(cur)) {
                 continue;
             }
-            int size = map.get(node).size();
-            for (int k = 0; k < size; k++) {
-                int newNode = map.get(node).get(k);
 
-                if (chk[newNode] != 0) {
+            List<Integer> nextNodes = adjList.get(cur);
+            for (Integer next : nextNodes) {
+                if (dist[next] > 0) {
                     continue;
                 }
 
-                chk[newNode] = chk[node] + 1;
-                q.add(newNode);
-                if (chk[newNode] > lastCnt) {
-                    lastCnt = chk[newNode];
-                }
+                dist[next] = dist[cur] + 1;
+                q.offer(next);
+                lastLevel = Math.max(lastLevel, dist[next]);
             }
         }
 
+        return getAnswerNode(lastLevel);
+    }
+
+    private static int getAnswerNode(int lastLevel) {
         int answer = 0;
-        for (int i = 100; i >= 1; i--) {
-            if (chk[i] == lastCnt) {
+
+        for (int i = MAX; i >= 1; i--) {
+            if (dist[i] == lastLevel) {
                 answer = i;
                 break;
             }
         }
+
         return answer;
     }
 }
