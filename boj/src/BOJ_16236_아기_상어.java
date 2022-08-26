@@ -4,9 +4,6 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class BOJ_16236_아기_상어 {
-    // 물고기 정렬
-    // 거리, 크기, R 작을수록, C 작을수록
-
     static int N;
     static int[][] map, dist;
     static Shark shark;
@@ -34,7 +31,6 @@ public class BOJ_16236_아기_상어 {
 
         int cnt = 0;
         while (true) {
-//            System.out.println("현재 상어 크기: "+ shark.size +" / 현재 상어 먹은 횟수: "+ shark.eatFishCnt);
             // 현재 상어의 위치와 각 fish의 distance 최신화 하기
             renewDistance(shark);
             // pq에 담기
@@ -46,51 +42,34 @@ public class BOJ_16236_아기_상어 {
                 orderedFish.offer(cur);
             }
             // 먹을 수 있는지 확인
-                // 먹을 수 있으면 먹고 이동
                 // 먹을 수 없으면 종료
-            boolean canEat = false;
-            while (!orderedFish.isEmpty()) {
+                // 먹을 수 있으면 이동, 먹기
+            if (orderedFish.size() == 0) {
+                break;
+            } else {
                 Fish cur = orderedFish.poll();
-//                if (!cur.isAlive) continue;;
-//                if (cur.size >= shark.size) continue;
-
-                cur.isAlive = false;
-                canEat = true;
-                sharkEatFishAndMove(cur);
+                eatFish(cur);
                 cnt += cur.distance;
-                break;
             }
-            if (!canEat) {
-                break;
-            }
-//            print();
-//            System.out.println(cnt);
         }
         System.out.println(cnt);
     }
 
-    private static void print() {
-        System.out.println("====================");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                System.out.print(map[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("====================");
-    }
-
-    private static void sharkEatFishAndMove(Fish cur) {
-        shark.eatFishCnt += 1;
-        if (shark.eatFishCnt == shark.size) {
-            shark.eatFishCnt = 0;
+    private static void eatFish(Fish fish) {
+        move(fish);
+        fish.isAlive = false;
+        shark.fishCnt += 1;
+        if (shark.fishCnt == shark.size) {
+            shark.fishCnt = 0;
             shark.size += 1;
         }
 
-        map[cur.r][cur.c] = 0;
+    }
+
+    private static void move(Fish fish) {
         map[shark.r][shark.c] = 0;
-        shark.r = cur.r;
-        shark.c = cur.c;
+        shark.r = fish.r;
+        shark.c = fish.c;
         map[shark.r][shark.c] = 9;
     }
 
@@ -139,8 +118,7 @@ public class BOJ_16236_아기_상어 {
     }
     private static class Shark extends Pair{
         int size = 2;
-        int eatFishCnt = 0;
-
+        int fishCnt = 0;
 
         public Shark(int r, int c) {
             super(r, c);
@@ -162,10 +140,6 @@ public class BOJ_16236_아기_상어 {
             if (this.distance != o.distance) {
                 return this.distance - o.distance;
             }
-
-//            if (this.size != o.size) {
-//                return this.size - o.size;
-//            }
 
             if (this.r != o.r) {
                 return this.r - o.r;
