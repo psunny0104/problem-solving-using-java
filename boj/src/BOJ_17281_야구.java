@@ -5,14 +5,11 @@ import java.util.*;
 
 public class BOJ_17281_야구 {
 
-    // 공격 - 타순 (순환, 안 바뀜)
-
     static int inning, MAX = 9, gameScore = Integer.MIN_VALUE;
     static int[][] results; // 이닝, 선수 번호
     static int[] selectedPlayers, numbers = {2, 3, 4, 5, 6, 7, 8, 9};
     static boolean[] isSelected;
     static Queue<Integer> order = new ArrayDeque<>();
-    static int lastPlayer = -1;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
