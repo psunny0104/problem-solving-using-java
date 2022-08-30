@@ -5,13 +5,12 @@ import java.util.StringTokenizer;
 
 public class BOJ_14503_로봇_청소기 {
 
-    static int[] dr = {0, -1, 0, 1}; // 북->서, 동->북, 남->동, 서->남
-    static int[] dc = {-1, 0, 1, 0};
     static int R, C, cnt;
-    static int NORTH = 0, EAST = 1, SOUTH = 2, WEST = 3;
-    static Robot robot;
     static int[][] map;
-    static boolean[][] isVisited;
+    static int[][] isVisited;
+    static Robot rb;
+    static int[] dr = {0, -1, 0, 1}; // 서, 북, 동, 남
+    static int[] dc = {-1, 0, 1, 0};
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -19,83 +18,107 @@ public class BOJ_14503_로봇_청소기 {
         R = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
 
-        isVisited = new boolean[R][C];
         st = new StringTokenizer(br.readLine());
-        robot = new Robot(Integer.parseInt(st.nextToken()),
+        rb = new Robot(Integer.parseInt(st.nextToken()),
                 Integer.parseInt(st.nextToken()),
                 Integer.parseInt(st.nextToken()));
 
-        while (true) {
-            // cleanCurLocation
-            cleanCurLocation();
-            // search
-            search();
-            // check
-        }
+        map = new int[R][C];
+        isVisited = new int[R][C];
 
-    }
-    // 서, 남, 동, 북
-    private static void search() {
-        while (true) {
-            int nr = robot.r + dr[robot.dir];
-            int nc = robot.c + dc[robot.dir];
-            if (!isVisited[nr][nc]) {
-                // 그 방향으로 회전
-//                rotate(getDir(dr[robot.dir], dc[robot.dir]));
-                // 1칸 전진 후 처음부터
-                move(nr, nc);
+        for (int i = 0; i < R; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < C; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[i][j] == 1) {
+                    isVisited[i][j] = 2;
+                }
             }
         }
 
+        while (true) {
+            cleanCurLocation();
+            int rotateCnt = 0;
+            for (int dir = 0; dir < 4; dir++) {
+                if (rotate()) {
+                    rotateCnt++;
+                } else {
+                    move();
+                    break;
+                }
+            }
+            if (rotateCnt == 4) {
+                int backMoveCnt = 0;
+                for (int i = 0; i < 4; i++) {
+                    if (backMove()) {
+                        backMoveCnt++;
+                    } else {
+                        break;
+                    }
+                }
+                if (backMoveCnt == 4) {
+                    break;
+                }
+            }
+        }
+
+        System.out.println(cnt);
     }
 
-//    private static Object getDir(int dr, int dc) {
-//        if (dr == 0 && dc == -1) {
-//            return
-//        }
-//    }
+    private static boolean backMove() {
+        int nr = rb.r + dr[(rb.dir + 3) % 4];
+        int nc = rb.c + dc[(rb.dir + 3) % 4];
 
-    private static void move(int nr, int nc) {
-        robot.r = nr;
-        robot.c = nc;
+        if (map[nr][nc] == 1) {
+            return true;
+        }
+        if ( nr == 0 || nc == 0 || nr >= R-1 || nc >= C-1) {
+            rb.dir = (rb.dir + 3) % 4;
+            return true;
+        }
+
+        rb.r += dr[(rb.dir + 3) % 4];
+        rb.c += dc[(rb.dir + 3) % 4];
+        return false;
     }
 
-    private static void rotate() {
-//        switch (robot.dir) {
-//            case NORTH:
-//                break;
-//            case
-//
-//        }
+    private static void move() {
+        rb.r += dr[rb.dir];
+        rb.c += dc[rb.dir];
+//        isVisited[rb.r][rb.c] = 1;
+        rb.dir = (rb.dir + 3) % 4;
+    }
+
+    private static boolean rotate() {
+        int nr = rb.r + dr[rb.dir];
+        int nc = rb.c + dc[rb.dir];
+
+        if (nr <= 0 || nc <= 0 || nr >= R-1 || nc >= C-1) {
+            rb.dir = (rb.dir + 3) % 4;
+            return true;
+        }
+        if (isVisited[nr][nc] == 1 || map[nr][nc] == 1) {
+            rb.dir = (rb.dir + 3) % 4;
+            return true;
+        }
+
+        return false;
     }
 
     private static void cleanCurLocation() {
-        isVisited[robot.r][robot.c] = true;
-        cnt++;
+        if (isVisited[rb.r][rb.c] == 0) {
+            isVisited[rb.r][rb.c] = 1;
+            cnt++;
+        }
     }
 
     private static class Robot {
-        int r;
-        int c;
-        int dir; // 북, 동, 남, 서
+        int r, c, dir;
 
-       public Robot(int r, int c, int dir) {
-           this.r = r;
-           this.c = c;
-           switch (dir) {
-               case 0:
-                   this.dir = NORTH;
-                   break;
-               case 1:
-                   this.dir = EAST;
-                   break;
-               case 2:
-                   this.dir = SOUTH;
-                   break;
-               case 3:
-                   this.dir = WEST;
-                   break;
-           }
-       }
-   }
+        public Robot(int r, int c, int dir) {
+            this.r = r;
+            this.c = c;
+            this.dir = dir;
+        }
+    }
 }
