@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.StringTokenizer;
 
@@ -11,6 +10,7 @@ public class BOJ_11003_최솟값_찾기 {
     static int N, L;
     static int[] D;
     static int answer;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -40,6 +40,7 @@ public class BOJ_11003_최솟값_찾기 {
     }
 
     private static class Pair {
+
         int idx;
         int value;
 

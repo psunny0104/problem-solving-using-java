@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_14502_연구소 {
 
@@ -11,6 +15,7 @@ public class BOJ_14502_연구소 {
     static ArrayList<Pair> candidates = new ArrayList<>();
     static ArrayList<Pair> virusList = new ArrayList<>();
     static int[] selIdx;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -86,9 +91,15 @@ public class BOJ_14502_연구소 {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if (ny < 0 || nx < 0 || ny >= Y || nx >= X) continue;
-                if (isVisited[ny][nx]) continue;
-                if (cpMap[ny][nx] != 0) continue;
+                if (ny < 0 || nx < 0 || ny >= Y || nx >= X) {
+                    continue;
+                }
+                if (isVisited[ny][nx]) {
+                    continue;
+                }
+                if (cpMap[ny][nx] != 0) {
+                    continue;
+                }
 
                 q.offer(new Pair(ny, nx));
                 isVisited[ny][nx] = true;
@@ -121,6 +132,7 @@ public class BOJ_14502_연구소 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

@@ -1,13 +1,19 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_17142_연구소_3 {
+
     static int N, virusTargetCnt, virusTotalCnt, answer = Integer.MAX_VALUE;
     static int[][] ogMap, cpMap, ogDist;
     static ArrayList<Pair> virusList = new ArrayList<>();
     static int[] selIdx;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -96,8 +102,12 @@ public class BOJ_17142_연구소_3 {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if (ny < 0 || nx < 0 || ny >= N || nx >= N) continue;
-                if (cpMap[ny][nx] == 1 || ogDist[ny][nx] > 0) continue;
+                if (ny < 0 || nx < 0 || ny >= N || nx >= N) {
+                    continue;
+                }
+                if (cpMap[ny][nx] == 1 || ogDist[ny][nx] > 0) {
+                    continue;
+                }
 
                 queue.offer(new Pair(ny, nx));
                 ogDist[ny][nx] = ogDist[cy][cx] + 1;
@@ -144,7 +154,9 @@ public class BOJ_17142_연구소_3 {
         }
         System.out.println("=====================");
     }
+
     private static class Pair {
+
         int y;
         int x;
 

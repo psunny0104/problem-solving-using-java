@@ -19,7 +19,7 @@ public class BOJ_11729_하노이_탑_이동_순서 {
     private static void move(int n, int start, int mid, int end) {
         cnt++;
 
-        if(n == 1) {
+        if (n == 1) {
             sb.append(start).append(" ").append(end).append("\n");
             return;
         }

@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class BOJ_17135_캐슬_디펜스 {
 
@@ -11,7 +15,7 @@ public class BOJ_17135_캐슬_디펜스 {
     static List<ArrayList<Enemy>> enemies = new ArrayList<>();
     static HashSet<Enemy> phaseCandidates = new HashSet<>();
     static PriorityQueue<Enemy> phaseCandidatesPerArcher = new PriorityQueue<>(
-            (o1, o2) -> o1.distance == o2.distance ? o1.c - o2.c:o1.distance - o2.distance
+            (o1, o2) -> o1.distance == o2.distance ? o1.c - o2.c : o1.distance - o2.distance
     );
 
     public static void main(String[] args) throws IOException {
@@ -134,7 +138,8 @@ public class BOJ_17135_캐슬_디펜스 {
         return Math.abs(start.r - end.r) + Math.abs(start.c - end.c);
     }
 
-    private static class Pair{
+    private static class Pair {
+
         int r;
         int c;
 
@@ -152,6 +157,7 @@ public class BOJ_17135_캐슬_디펜스 {
     }
 
     private static class Enemy extends Pair {
+
         int distance;
         boolean isAlive;
 

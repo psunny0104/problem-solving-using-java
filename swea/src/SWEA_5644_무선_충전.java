@@ -12,6 +12,7 @@ public class SWEA_5644_무선_충전 {
     static int T, time, bcTotalCnt;
     static User userA, userB;
     static ArrayList<BC> bcs = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -25,7 +26,7 @@ public class SWEA_5644_무선_충전 {
             bcTotalCnt = Integer.parseInt(in.nextToken());
 
             userA = new User(1, 1);
-            userB = new User(10,10);
+            userB = new User(10, 10);
             bcs.clear();
 
             in = new StringTokenizer(br.readLine());
@@ -122,6 +123,7 @@ public class SWEA_5644_무선_충전 {
     }
 
     private static class BC {
+
         int r;
         int c;
         int range;
@@ -136,6 +138,7 @@ public class SWEA_5644_무선_충전 {
     }
 
     private static class User {
+
         int r;
         int c;
         int charge;

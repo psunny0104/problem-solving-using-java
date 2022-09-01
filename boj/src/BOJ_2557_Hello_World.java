@@ -1,6 +1,9 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class BOJ_2557_Hello_World {
+
     public static void main(String[] args) throws IOException {
         firstSolution();
     }

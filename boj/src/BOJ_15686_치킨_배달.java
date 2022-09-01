@@ -1,14 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class BOJ_15686_치킨_배달 {
 
-    static int N, targetStoreCnt, totalStoreCnt ,answer = Integer.MAX_VALUE;
+    static int N, targetStoreCnt, totalStoreCnt, answer = Integer.MAX_VALUE;
     static ArrayList<Pair> storeList = new ArrayList<>();
     static ArrayList<Pair> homeList = new ArrayList<>();
     static Pair[] selectedStoreList;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -63,6 +65,7 @@ public class BOJ_15686_치킨_배달 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

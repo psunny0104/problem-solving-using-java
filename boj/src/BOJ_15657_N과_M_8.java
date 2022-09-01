@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_15657_N과_M_8 {
+
     // 중복 조합
     static int N, M;
     static int[] numbers, inputs;

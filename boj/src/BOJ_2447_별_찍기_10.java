@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class BOJ_2447_별_찍기_10 {
+
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

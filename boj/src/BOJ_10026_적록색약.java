@@ -12,6 +12,7 @@ public class BOJ_10026_적록색약 {
     static char[][] normalMap;
     static boolean[][] visited;
     static int normalCnt, rgbCnt;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
@@ -23,8 +24,9 @@ public class BOJ_10026_적록색약 {
             normalMap[i] = br.readLine().toCharArray();
             rgbMap[i] = Arrays.copyOf(normalMap[i], N);
             for (int j = 0; j < N; j++) {
-                if (rgbMap[i][j] == 'G')
+                if (rgbMap[i][j] == 'G') {
                     rgbMap[i][j] = 'R';
+                }
             }
         }
 
@@ -34,15 +36,16 @@ public class BOJ_10026_적록색약 {
         }
         rgbCnt = getAreaCnt(rgbMap);
 
-        System.out.println(normalCnt+" "+rgbCnt);
+        System.out.println(normalCnt + " " + rgbCnt);
     }
 
     private static int getAreaCnt(char[][] map) {
         int cnt = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (visited[i][j])
+                if (visited[i][j]) {
                     continue;
+                }
                 bfs(i, j, map);
                 cnt++;
             }
@@ -71,11 +74,13 @@ public class BOJ_10026_적록색약 {
                     continue;
                 }
 
-                if (visited[ny][nx])
+                if (visited[ny][nx]) {
                     continue;
+                }
 
-                if(map[ny][nx] != map[y][x])
+                if (map[ny][nx] != map[y][x]) {
                     continue;
+                }
 
                 visited[ny][nx] = true;
                 q.add(new Pair(ny, nx));
@@ -84,6 +89,7 @@ public class BOJ_10026_적록색약 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

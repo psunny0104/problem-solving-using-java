@@ -26,7 +26,8 @@ public class SWEA_2001_파리_퇴치 {
             for (int i = 1; i <= matrixSize; i++) {
                 in = new StringTokenizer(br.readLine());
                 for (int j = 1; j <= matrixSize; j++) {
-                    sumMatrix[i][j] = sumMatrix[i - 1][j] + sumMatrix[i][j - 1] - sumMatrix[i - 1][j - 1];
+                    sumMatrix[i][j] =
+                            sumMatrix[i - 1][j] + sumMatrix[i][j - 1] - sumMatrix[i - 1][j - 1];
                     sumMatrix[i][j] += Integer.parseInt(in.nextToken());
                 }
             }
@@ -40,11 +41,12 @@ public class SWEA_2001_파리_퇴치 {
         System.out.print(sb);
     }
 
-    private static int searchMaxCnt(int[][] sumMatrix, int matrixSize, int swatterSize, int answer) {
+    private static int searchMaxCnt(int[][] sumMatrix, int matrixSize, int swatterSize,
+            int answer) {
         int limit = matrixSize - swatterSize + 1;
 
-        for(int i = 1; i <= limit; i++) {
-            for(int j = 1; j <= limit; j++) {
+        for (int i = 1; i <= limit; i++) {
+            for (int j = 1; j <= limit; j++) {
                 int stY = i;
                 int stX = j;
                 int edY = i + swatterSize - 1;
@@ -57,7 +59,9 @@ public class SWEA_2001_파리_퇴치 {
     }
 
     private static int getSum(int stX, int stY, int edX, int edY, int[][] sumMatrix) {
-        int diff = sumMatrix[edY][edX] - sumMatrix[stY - 1][edX] - sumMatrix[edY][stX - 1] + sumMatrix[stY - 1][stX - 1];
+        int diff =
+                sumMatrix[edY][edX] - sumMatrix[stY - 1][edX] - sumMatrix[edY][stX - 1] + sumMatrix[
+                        stY - 1][stX - 1];
         return diff;
     }
 

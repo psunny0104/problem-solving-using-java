@@ -7,6 +7,7 @@ public class BOJ_2630_색종이_만들기 {
 
     static int N, whiteCnt, blueCnt;
     static int[][] map;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in;
@@ -21,7 +22,7 @@ public class BOJ_2630_색종이_만들기 {
         }
 
         dq(0, 0, N);
-        System.out.println(whiteCnt+"\n"+blueCnt);
+        System.out.println(whiteCnt + "\n" + blueCnt);
     }
 
     private static void dq(int stR, int stC, int len) {

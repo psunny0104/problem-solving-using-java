@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class BOJ_3190_뱀 {
 
@@ -11,6 +14,7 @@ public class BOJ_3190_뱀 {
     static HashMap<Integer, Character> orders = new HashMap<>();
     static int[] dr = {0, 1, 0, -1}; // 동, 남, 서, 북
     static int[] dc = {1, 0, -1, 0};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -19,7 +23,7 @@ public class BOJ_3190_뱀 {
         N = Integer.parseInt(br.readLine());
         K = Integer.parseInt(br.readLine());
 
-        map = new int[N+1][N+1];
+        map = new int[N + 1][N + 1];
         map[1][1] = 1;
         for (int i = 0; i < K; i++) {
             st = new StringTokenizer(br.readLine());
@@ -85,6 +89,7 @@ public class BOJ_3190_뱀 {
     }
 
     private static class Snake {
+
         int dir = 0;
         Deque<Pair> body = new ArrayDeque<>();
 
@@ -94,6 +99,7 @@ public class BOJ_3190_뱀 {
     }
 
     private static class Pair {
+
         int r, c;
 
         public Pair(int r, int c) {

@@ -1,7 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_17471_게리맨더링 {
 
@@ -16,14 +21,14 @@ public class BOJ_17471_게리맨더링 {
         StringTokenizer st;
         N = Integer.parseInt(br.readLine());
 
-        areaPeople = new int[N+1];
+        areaPeople = new int[N + 1];
 
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= N; i++) {
             areaPeople[i] = Integer.parseInt(st.nextToken());
         }
 
-        adjList = new Node[N+1];
+        adjList = new Node[N + 1];
         for (int from = 1; from <= N; from++) {
             st = new StringTokenizer(br.readLine());
             int adjCnt = Integer.parseInt(st.nextToken());
@@ -34,8 +39,8 @@ public class BOJ_17471_게리맨더링 {
             }
         }
 
-        isVisited = new boolean[N+1];
-        isSelected = new boolean[N+1];
+        isVisited = new boolean[N + 1];
+        isSelected = new boolean[N + 1];
 
         // 가능한 개수만큼 뽑는 조합 만들기
         for (int redCnt = 1; redCnt < N; redCnt++) {
@@ -115,8 +120,12 @@ public class BOJ_17471_게리맨더링 {
             int cur = q.poll();
 
             for (Node temp = adjList[cur]; temp != null; temp = temp.next) {
-                if (isVisited[temp.vertex]) continue;
-                if (!vertices.contains(temp.vertex)) continue;
+                if (isVisited[temp.vertex]) {
+                    continue;
+                }
+                if (!vertices.contains(temp.vertex)) {
+                    continue;
+                }
 
                 q.offer(temp.vertex);
                 isVisited[temp.vertex] = true;
@@ -128,6 +137,7 @@ public class BOJ_17471_게리맨더링 {
     }
 
     static private class Node {
+
         int vertex;
         Node next;
 

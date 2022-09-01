@@ -5,10 +5,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_15656_N과_M_7 {
+
     // 중복 순열
     static int N, M;
     static int[] numbers, inputs;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());

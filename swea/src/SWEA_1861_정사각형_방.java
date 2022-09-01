@@ -8,6 +8,7 @@ public class SWEA_1861_정사각형_방 {
     static int N, idx, cnt;
     static int[][] map;
     static boolean[][] isVisited;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -20,7 +21,7 @@ public class SWEA_1861_정사각형_방 {
             idx = Integer.MAX_VALUE;
             cnt = Integer.MIN_VALUE;
 
-            for (int i = 0; i <N; i++) {
+            for (int i = 0; i < N; i++) {
                 in = new StringTokenizer(br.readLine());
                 for (int j = 0; j < N; j++) {
                     map[i][j] = Integer.parseInt(in.nextToken());
@@ -48,9 +49,15 @@ public class SWEA_1861_정사각형_방 {
             int ny = y + dy[dir];
             int nx = x + dx[dir];
 
-            if (ny < 0 || nx < 0 || ny >= N || nx >= N) continue;
-            if (isVisited[ny][nx]) continue;
-            if (map[ny][nx] != map[y][x] + 1) continue;
+            if (ny < 0 || nx < 0 || ny >= N || nx >= N) {
+                continue;
+            }
+            if (isVisited[ny][nx]) {
+                continue;
+            }
+            if (map[ny][nx] != map[y][x] + 1) {
+                continue;
+            }
 
             if (curCnt + 1 > cnt) {
                 cnt = curCnt + 1;

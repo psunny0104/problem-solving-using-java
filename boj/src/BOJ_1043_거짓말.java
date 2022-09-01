@@ -40,7 +40,9 @@ public class BOJ_1043_거짓말 {
         makeUnionInParty();
 
         for (int i = 1; i <= M; i++) {
-            if (check(i)) answer++;
+            if (check(i)) {
+                answer++;
+            }
         }
 
         System.out.println(answer);

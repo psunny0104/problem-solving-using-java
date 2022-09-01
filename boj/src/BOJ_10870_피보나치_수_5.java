@@ -13,10 +13,11 @@ public class BOJ_10870_피보나치_수_5 {
     }
 
     private static int fibo(int n) {
-        if(n == 0)
+        if (n == 0) {
             return 0;
-        else if(n == 1)
+        } else if (n == 1) {
             return 1;
+        }
 
         return fibo(n - 2) + fibo(n - 1);
     }

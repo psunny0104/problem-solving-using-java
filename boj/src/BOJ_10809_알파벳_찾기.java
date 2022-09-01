@@ -1,7 +1,12 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
 public class BOJ_10809_알파벳_찾기 {
+
     public static void main(String[] args) throws IOException {
         firstSolution();
     }
@@ -19,8 +24,9 @@ public class BOJ_10809_알파벳_찾기 {
 
         for (char alphabet : word.toCharArray()) {
             order += 1;
-            if (location[alphabet - 'a'] != -1)
+            if (location[alphabet - 'a'] != -1) {
                 continue;
+            }
 
             location[alphabet - 'a'] = order;
         }

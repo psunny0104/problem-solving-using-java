@@ -5,10 +5,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_12891_DNA_비밀번호 {
+
     // 순열 -> 결과 중복 제거
     static int S, P, answer;
     static int[] condition, curState;
     static char[] target;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -57,10 +59,11 @@ public class BOJ_12891_DNA_비밀번호 {
         return isOk;
     }
 
-    private static void update(int st, int ed)  {
+    private static void update(int st, int ed) {
         subtractSt(st);
         plusEd(ed);
     }
+
     private static void plusEd(int ed) {
         switch (target[ed]) {
             case 'A':
@@ -77,6 +80,7 @@ public class BOJ_12891_DNA_비밀번호 {
                 break;
         }
     }
+
     private static void subtractSt(int st) {
         switch (target[st]) {
             case 'A':

@@ -1,7 +1,12 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class SWEA_1979_어디에_단어가_들어갈_수_있을까 {
+
     public static void main(String[] args) throws IOException {
         firstSolution();
     }

@@ -7,17 +7,18 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_2178_미로_탐색 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
 
         int y = Integer.parseInt(in.nextToken());
         int x = Integer.parseInt(in.nextToken());
-        int[][] map = new int[y + 1][ x + 1];
+        int[][] map = new int[y + 1][x + 1];
 
-        for(int i = 1; i <= y; i++) {
+        for (int i = 1; i <= y; i++) {
             String input = br.readLine();
-            for(int j = 1; j <= x; j++) {
+            for (int j = 1; j <= x; j++) {
                 map[i][j] = input.charAt(j - 1) - '0';
             }
         }
@@ -30,30 +31,34 @@ public class BOJ_2178_미로_탐색 {
         int[] dy = {0, 1, 0, -1};
         int[] dx = {1, 0, -1, 0};
         int[][] dist = new int[destY + 1][destX + 1];
-        for(int i = 1; i <= destY; i++)
+        for (int i = 1; i <= destY; i++) {
             Arrays.fill(dist[i], 0);
+        }
         dist[1][1] = 1;
         Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(1, 1));
 
         int answer = 0;
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             Pair cur = q.poll();
             int cy = cur.getY();
             int cx = cur.getX();
 
-            for(int dir = 0; dir < 4; dir++) {
+            for (int dir = 0; dir < 4; dir++) {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if(ny < 1 || nx < 1 || ny > destY || nx > destX)
+                if (ny < 1 || nx < 1 || ny > destY || nx > destX) {
                     continue;
+                }
 
-                if(dist[ny][nx] != 0)
+                if (dist[ny][nx] != 0) {
                     continue;
+                }
 
-                if(map[ny][nx] != 1)
+                if (map[ny][nx] != 1) {
                     continue;
+                }
 
                 dist[ny][nx] = dist[cy][cx] + 1;
                 q.add(new Pair(ny, nx));
@@ -66,6 +71,7 @@ public class BOJ_2178_미로_탐색 {
     }
 
     private static class Pair {
+
         private int y;
         private int x;
 

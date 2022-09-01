@@ -12,6 +12,7 @@ public class BOJ_1753_최단경로 {
     static Node[] adjList;
     static int[] dist;
     static boolean[] isVisited;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -20,7 +21,7 @@ public class BOJ_1753_최단경로 {
         V = Integer.parseInt(st.nextToken());
         E = Integer.parseInt(st.nextToken());
         start = Integer.parseInt(br.readLine());
-        adjList = new Node[V+1];
+        adjList = new Node[V + 1];
 
         for (int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine());
@@ -40,8 +41,8 @@ public class BOJ_1753_최단경로 {
     }
 
     private static void dijkstra() {
-        dist = new int[V+1];
-        isVisited = new boolean[V+1];
+        dist = new int[V + 1];
+        isVisited = new boolean[V + 1];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[start] = 0;
 
@@ -52,12 +53,16 @@ public class BOJ_1753_최단경로 {
             Node cur = pq.poll();
             int curVertex = cur.value;
 
-            if (isVisited[curVertex]) continue;
+            if (isVisited[curVertex]) {
+                continue;
+            }
             isVisited[curVertex] = true;
 
             for (Node temp = adjList[curVertex]; temp != null; temp = temp.next) {
                 int nextVertex = temp.value;
-                if (isVisited[nextVertex]) continue;
+                if (isVisited[nextVertex]) {
+                    continue;
+                }
                 if (dist[nextVertex] > dist[curVertex] + temp.weight) {
                     dist[nextVertex] = dist[curVertex] + temp.weight;
                     pq.offer(new Node(nextVertex, dist[nextVertex]));
@@ -67,9 +72,11 @@ public class BOJ_1753_최단경로 {
     }
 
     private static class Node {
+
         int value;
         int weight;
         Node next;
+
         public Node(int value, int weight) {
             this.value = value;
             this.weight = weight;

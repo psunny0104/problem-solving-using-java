@@ -1,9 +1,14 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_10818_최소_최대 {
-    public static void main(String[] args) throws IOException{
+
+    public static void main(String[] args) throws IOException {
         // firstSolution();
         secondSolution();
     }
@@ -33,7 +38,7 @@ public class BOJ_10818_최소_최대 {
         br.close();
     }
 
-    private static void secondSolution() throws IOException{
+    private static void secondSolution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();

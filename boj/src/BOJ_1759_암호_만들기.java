@@ -9,6 +9,7 @@ public class BOJ_1759_암호_만들기 {
     static int secretLength, kind;
     static char[] alphabets, selectedAlphabets;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -52,7 +53,8 @@ public class BOJ_1759_암호_만들기 {
         int consonantCnt = 0;
         int vowelCnt = 0;
         for (char selectedAlphabet : selectedAlphabets) {
-            if (selectedAlphabet == 'a' || selectedAlphabet == 'e' || selectedAlphabet == 'i' || selectedAlphabet == 'o' || selectedAlphabet == 'u') {
+            if (selectedAlphabet == 'a' || selectedAlphabet == 'e' || selectedAlphabet == 'i'
+                    || selectedAlphabet == 'o' || selectedAlphabet == 'u') {
                 consonantCnt++;
             } else {
                 vowelCnt++;

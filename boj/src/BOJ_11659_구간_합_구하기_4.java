@@ -16,13 +16,13 @@ public class BOJ_11659_구간_합_구하기_4 {
         int[] sumArr = new int[size + 1];
 
         in = new StringTokenizer(br.readLine());
-        for(int i = 1; i <= size; i++) {
+        for (int i = 1; i <= size; i++) {
             numbers[i] = Integer.parseInt(in.nextToken());
         }
 
         makeSumArr(size, numbers, sumArr);
 
-        for(int t = 1; t <= tc; t++) {
+        for (int t = 1; t <= tc; t++) {
             in = new StringTokenizer(br.readLine());
             int st = Integer.parseInt(in.nextToken());
             int ed = Integer.parseInt(in.nextToken());
@@ -35,7 +35,7 @@ public class BOJ_11659_구간_합_구하기_4 {
 
     private static void makeSumArr(int size, int[] numbers, int[] sumArr) {
         sumArr[0] = numbers[0] = 0;
-        for(int i = 1; i <= size; i++ ) {
+        for (int i = 1; i <= size; i++) {
             sumArr[i] = sumArr[i - 1] + numbers[i];
         }
     }

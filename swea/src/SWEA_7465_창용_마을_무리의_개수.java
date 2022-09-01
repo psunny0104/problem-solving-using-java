@@ -8,6 +8,7 @@ public class SWEA_7465_창용_마을_무리의_개수 {
 
     static int T, N, M;
     static int[] p;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

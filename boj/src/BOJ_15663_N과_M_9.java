@@ -1,9 +1,14 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class BOJ_15663_N과_M_9 {
+
     // 순열 -> 결과 중복 제거
     // Treeset<String> -> 그냥 붙임 -> 다시 분리할 때 구분자가 없었음
     // 구분자 추가 -> TreeSet<String> 정렬 순서가 String의 정렬으로 인해 숫자 크기 순이 아님
@@ -14,6 +19,7 @@ public class BOJ_15663_N과_M_9 {
     static TreeSet<String> treeSet;
     static HashMap<String, Integer> hashMap = new LinkedHashMap<>();
     static StringBuilder sb;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -52,7 +58,7 @@ public class BOJ_15663_N과_M_9 {
                 sb.append(numbers[i]).append(" ");
             }
             sb.append("\n");
-            hashMap.putIfAbsent(sb.toString(),0);
+            hashMap.putIfAbsent(sb.toString(), 0);
             return;
         }
 

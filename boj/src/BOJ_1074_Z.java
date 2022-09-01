@@ -7,6 +7,7 @@ public class BOJ_1074_Z {
 
     static int N, R, C, LEN;
     static int cnt;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -15,7 +16,7 @@ public class BOJ_1074_Z {
         R = Integer.parseInt(in.nextToken());
         C = Integer.parseInt(in.nextToken());
 
-        LEN = (int)Math.pow(2, N);
+        LEN = (int) Math.pow(2, N);
         dq(0, 0, LEN);
     }
 
@@ -23,7 +24,7 @@ public class BOJ_1074_Z {
         if (n == 1) {
             System.out.println(cnt);
         } else if (n > 1) {
-            int newN = n/2;
+            int newN = n / 2;
             if (R < r + newN && C < c + newN) {
                 cnt += 0;
                 dq(r, c, newN);

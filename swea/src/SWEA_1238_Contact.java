@@ -1,13 +1,19 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class SWEA_1238_Contact {
 
     static int adjListCnt, startNode, MAX = 100;
     static int[] dist;
     static HashMap<Integer, ArrayList<Integer>> adjList;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -20,7 +26,7 @@ public class SWEA_1238_Contact {
             adjList = new HashMap<>();
 
             in = new StringTokenizer(br.readLine());
-            for (int i = 0; i < adjListCnt/2; i++) {
+            for (int i = 0; i < adjListCnt / 2; i++) {
                 int from = Integer.parseInt(in.nextToken());
                 int to = Integer.parseInt(in.nextToken());
 

@@ -9,6 +9,7 @@ public class BOJ_15651_N과_M_3 {
     static int N, M;
     static int[] numbers;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -30,7 +31,7 @@ public class BOJ_15651_N과_M_3 {
             return;
         }
 
-        for(int i = 1; i <= N; i++) {
+        for (int i = 1; i <= N; i++) {
             numbers[cnt] = i;
             perm(cnt + 1);
         }

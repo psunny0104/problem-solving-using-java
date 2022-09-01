@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_17141_연구소_2 {
 
@@ -12,6 +16,7 @@ public class BOJ_17141_연구소_2 {
     static ArrayList<Pair> selVirusList = new ArrayList<>();
 
     static int[] selIdx;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -37,7 +42,7 @@ public class BOJ_17141_연구소_2 {
         virusTotalCnt = virusList.size();
         selIdx = new int[virusTargetNumber];
         cmb(0, 0);
-        answer = answer == Integer.MAX_VALUE ? -1 :answer-1;
+        answer = answer == Integer.MAX_VALUE ? -1 : answer - 1;
         System.out.println(answer);
     }
 
@@ -95,9 +100,15 @@ public class BOJ_17141_연구소_2 {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if (ny < 0 || nx < 0 || ny >= N || nx >= N) continue;
-                if (cpDist[ny][nx] > 0) continue;
-                if (cpMap[ny][nx] != 0) continue;
+                if (ny < 0 || nx < 0 || ny >= N || nx >= N) {
+                    continue;
+                }
+                if (cpDist[ny][nx] > 0) {
+                    continue;
+                }
+                if (cpMap[ny][nx] != 0) {
+                    continue;
+                }
 
                 q.offer(new Pair(ny, nx));
                 cpDist[ny][nx] = cpDist[cy][cx] + 1;
@@ -135,6 +146,7 @@ public class BOJ_17141_연구소_2 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

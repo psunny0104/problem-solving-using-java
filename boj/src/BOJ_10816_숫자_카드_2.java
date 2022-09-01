@@ -35,7 +35,7 @@ public class BOJ_10816_숫자_카드_2 {
 
             if (binarySearch(target)) {
                 sb.append(numberCnt.get(target));
-         } else {
+            } else {
                 sb.append(0);
             }
             sb.append(" ");
@@ -46,9 +46,9 @@ public class BOJ_10816_숫자_카드_2 {
     private static boolean binarySearch(int target) {
 
         int st = 0;
-        int ed = N-1;
+        int ed = N - 1;
         while (st <= ed) {
-            int midIdx = (st+ed) / 2;
+            int midIdx = (st + ed) / 2;
             int midValue = inputNumbers[midIdx];
 
             if (midValue == target) {

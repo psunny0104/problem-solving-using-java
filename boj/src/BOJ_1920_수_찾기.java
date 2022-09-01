@@ -8,6 +8,7 @@ public class BOJ_1920_수_찾기 {
 
     static int numberCnt, targetCnt;
     static int[] numbers;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

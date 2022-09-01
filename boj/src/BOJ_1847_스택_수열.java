@@ -20,7 +20,7 @@ public class BOJ_1847_스택_수열 {
 
         Stack<Integer> stack = new Stack<>();
         int idx = 1;
-        for (int i = 1; i <= N ; i++) {
+        for (int i = 1; i <= N; i++) {
             int curNumber = numbers[i];
 
             if (curNumber >= idx) {

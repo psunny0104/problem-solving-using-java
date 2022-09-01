@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -46,7 +45,7 @@ public class SWEA_8382_방향_전환 {
     private static int bfs() {
         Queue<Pair> q = new ArrayDeque<>();
         q.offer(start);
-        isVisited = new boolean[MAX+1][MAX+1];
+        isVisited = new boolean[MAX + 1][MAX + 1];
         isVisited[start.r][start.c] = true;
 
         while (!q.isEmpty()) {
@@ -65,8 +64,12 @@ public class SWEA_8382_방향_전환 {
                 int nr = cr + dr[dir];
                 int nc = cc + dc[dir];
 
-                if (nr < 0 || nc < 0 || nr > 200 || nc > 200) continue;
-                if (isVisited[nr][nc]) continue;
+                if (nr < 0 || nc < 0 || nr > 200 || nc > 200) {
+                    continue;
+                }
+                if (isVisited[nr][nc]) {
+                    continue;
+                }
 
                 q.offer(new Pair(nr, nc, !cur.isHorizontal, cur.cnt + 1));
                 isVisited[nr][nc] = true;
@@ -79,6 +82,7 @@ public class SWEA_8382_방향_전환 {
     }
 
     private static class Pair {
+
         int r, c;
         boolean isHorizontal;
         int cnt;

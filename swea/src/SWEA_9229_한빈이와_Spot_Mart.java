@@ -8,6 +8,7 @@ public class SWEA_9229_한빈이와_Spot_Mart {
 
     static int snackN, limit, answer;
     static int[] snacks;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -22,7 +23,7 @@ public class SWEA_9229_한빈이와_Spot_Mart {
             answer = -1;
 
             for (int i = 0; i < snackN; i++) {
-                for (int j = i + 1; j <snackN; j++) {
+                for (int j = i + 1; j < snackN; j++) {
                     int sum = snacks[i] + snacks[j];
                     if (sum > limit) {
                         continue;

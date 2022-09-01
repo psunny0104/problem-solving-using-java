@@ -7,6 +7,7 @@ public class BOJ_16935_배열_돌리기_3 {
 
     static int R, C, operationCnt;
     static int[][] ogMap;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -94,7 +95,7 @@ public class BOJ_16935_배열_돌리기_3 {
         int[][] newMap = new int[C][R];
         for (int i = 0; i < C; i++) {
             for (int j = 0; j < R; j++) {
-                newMap[i][j] = ogMap[j][C - i -1];
+                newMap[i][j] = ogMap[j][C - i - 1];
             }
         }
         return newMap;
@@ -102,8 +103,8 @@ public class BOJ_16935_배열_돌리기_3 {
 
     private static int[][] five() {
         int[][] newMap = new int[R][C];
-        int nr = R/2;
-        int nc = C/2;
+        int nr = R / 2;
+        int nc = C / 2;
 
         for (int i = 0; i < nr; i++) {
             for (int j = 0; j < nc; j++) {
@@ -129,8 +130,8 @@ public class BOJ_16935_배열_돌리기_3 {
 
     private static int[][] six() {
         int[][] newMap = new int[R][C];
-        int nr = R/2;
-        int nc = C/2;
+        int nr = R / 2;
+        int nc = C / 2;
 
         for (int i = 0; i < nr; i++) {
             for (int j = 0; j < nc; j++) {

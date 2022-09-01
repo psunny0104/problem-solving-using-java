@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class BOJ_1546_평균 {
+
     public static void main(String[] args) {
         firstSolution();
     }
@@ -19,6 +20,6 @@ public class BOJ_1546_평균 {
             }
         }
 
-        System.out.println((100.0 * avg/N) / highest);
+        System.out.println((100.0 * avg / N) / highest);
     }
 }

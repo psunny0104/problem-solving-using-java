@@ -24,7 +24,7 @@ public class BOJ_15654_N과_M_5 {
         numbers = new int[M];
 
         in = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             inputs[i] = Integer.parseInt(in.nextToken());
         }
 
@@ -42,7 +42,7 @@ public class BOJ_15654_N과_M_5 {
             return;
         }
 
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             if (isSelected[i]) {
                 continue;
             }

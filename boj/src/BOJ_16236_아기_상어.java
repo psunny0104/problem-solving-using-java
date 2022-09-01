@@ -1,9 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_16236_아기_상어 {
+
     static int N;
     static int[][] map, dist;
     static Shark shark;
@@ -11,6 +18,7 @@ public class BOJ_16236_아기_상어 {
     static PriorityQueue<Fish> orderedFish = new PriorityQueue<>();
     static int[] dr = {0, 0, 1, -1};
     static int[] dc = {1, -1, 0, 0};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -36,14 +44,21 @@ public class BOJ_16236_아기_상어 {
             // pq에 담기
             orderedFish.clear();
             for (Fish cur : fish) {
-                if (!cur.isAlive) continue;;
-                if (cur.size >= shark.size) continue;
-                if (cur.distance == -1) continue;
+                if (!cur.isAlive) {
+                    continue;
+                }
+                ;
+                if (cur.size >= shark.size) {
+                    continue;
+                }
+                if (cur.distance == -1) {
+                    continue;
+                }
                 orderedFish.offer(cur);
             }
             // 먹을 수 있는지 확인
-                // 먹을 수 없으면 종료
-                // 먹을 수 있으면 이동, 먹기
+            // 먹을 수 없으면 종료
+            // 먹을 수 있으면 이동, 먹기
             if (orderedFish.size() == 0) {
                 break;
             } else {
@@ -76,7 +91,9 @@ public class BOJ_16236_아기_상어 {
     private static void renewDistance(Shark shark) {
         markDistanceToMap(shark);
         for (Fish cur : fish) {
-            if (!cur.isAlive) continue;
+            if (!cur.isAlive) {
+                continue;
+            }
             cur.distance = dist[cur.r][cur.c];
         }
     }
@@ -85,7 +102,8 @@ public class BOJ_16236_아기_상어 {
         dist = new int[N][N];
         for (int i = 0; i < N; i++) {
             Arrays.fill(dist[i], -1);
-        };
+        }
+        ;
         dist[shark.r][shark.c] = 0;
         Queue<Pair> q = new ArrayDeque<>();
         q.offer(shark);
@@ -98,9 +116,15 @@ public class BOJ_16236_아기_상어 {
                 int nr = cr + dr[dir];
                 int nc = cc + dc[dir];
 
-                if (nr < 0 || nc < 0 || nr >= N || nc >= N) continue;
-                if (dist[nr][nc] != -1) continue;
-                if (map[nr][nc] > shark.size) continue;
+                if (nr < 0 || nc < 0 || nr >= N || nc >= N) {
+                    continue;
+                }
+                if (dist[nr][nc] != -1) {
+                    continue;
+                }
+                if (map[nr][nc] > shark.size) {
+                    continue;
+                }
 
                 dist[nr][nc] = dist[cr][cc] + 1;
                 q.offer(new Pair(nr, nc));
@@ -109,6 +133,7 @@ public class BOJ_16236_아기_상어 {
     }
 
     private static class Pair {
+
         int r, c;
 
         public Pair(int r, int c) {
@@ -116,7 +141,9 @@ public class BOJ_16236_아기_상어 {
             this.c = c;
         }
     }
-    private static class Shark extends Pair{
+
+    private static class Shark extends Pair {
+
         int size = 2;
         int fishCnt = 0;
 
@@ -125,7 +152,8 @@ public class BOJ_16236_아기_상어 {
         }
     }
 
-    private static class Fish extends Pair implements Comparable<Fish>{
+    private static class Fish extends Pair implements Comparable<Fish> {
+
         int size;
         int distance = 0;
         boolean isAlive = true;

@@ -7,6 +7,7 @@ public class BOJ_13458_시험_감독 {
 
     static int room, regular, vice;
     static int[] people;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

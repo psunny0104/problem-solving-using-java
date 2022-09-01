@@ -4,9 +4,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_9372_상근이의_여행 {
+
     static int T, N, M;
     static int[] p;
     static Edge[] edgeList;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -65,13 +67,14 @@ public class BOJ_9372_상근이의_여행 {
     }
 
     private static void make() {
-        p = new int[N+1];
+        p = new int[N + 1];
         for (int i = 1; i <= N; i++) {
             p[i] = -1;
         }
     }
 
     private static class Edge {
+
         int from, to;
 
         public Edge(int from, int to) {

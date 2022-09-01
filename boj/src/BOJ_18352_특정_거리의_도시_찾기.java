@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_18352_특정_거리의_도시_찾기 {
 
@@ -9,6 +13,7 @@ public class BOJ_18352_특정_거리의_도시_찾기 {
     static Node[] adjList;
     static int[] dist;
     static ArrayList<Integer> answer = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -51,7 +56,9 @@ public class BOJ_18352_특정_거리의_도시_찾기 {
             int cur = q.poll();
 
             for (Node temp = adjList[cur]; temp != null; temp = temp.next) {
-                if (dist[temp.vertex] != 0) continue;
+                if (dist[temp.vertex] != 0) {
+                    continue;
+                }
 
                 dist[temp.vertex] = dist[cur] + 1;
                 q.offer(temp.vertex);
@@ -63,6 +70,7 @@ public class BOJ_18352_특정_거리의_도시_찾기 {
     }
 
     static class Node {
+
         int vertex;
         Node next;
 

@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 public class BOJ_2493_탑 {
 
     static int N;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in;
@@ -39,6 +40,7 @@ public class BOJ_2493_탑 {
     }
 
     private static class Pair {
+
         int idx;
         int height;
 

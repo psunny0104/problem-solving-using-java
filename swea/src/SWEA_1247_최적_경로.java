@@ -9,6 +9,7 @@ public class SWEA_1247_최적_경로 {
     static Pair start, destination;
     static boolean[] isSelected;
     static Pair[] customerPairs, selectedCustomers;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -24,9 +25,11 @@ public class SWEA_1247_최적_경로 {
             selectedCustomers = new Pair[customerCnt];
 
             start = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
-            destination = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
+            destination = new Pair(Integer.parseInt(in.nextToken()),
+                    Integer.parseInt(in.nextToken()));
             for (int i = 0; i < customerCnt; i++) {
-                customerPairs[i] = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
+                customerPairs[i] = new Pair(Integer.parseInt(in.nextToken()),
+                        Integer.parseInt(in.nextToken()));
             }
 
             answer = Integer.MAX_VALUE;
@@ -40,13 +43,17 @@ public class SWEA_1247_최적_경로 {
         if (cnt == customerCnt) {
             // 회사 - 선택된 순서의 고객위치 - 집
             // 각 최단거리 더해서 합하기
-            int curSum = getDistance(start.y, start.x, selectedCustomers[0].y, selectedCustomers[0].x);
+            int curSum = getDistance(start.y, start.x, selectedCustomers[0].y,
+                    selectedCustomers[0].x);
             for (int i = 0; i < customerCnt - 1; i++) {
-                if (curSum > answer)
+                if (curSum > answer) {
                     return;
-                curSum += getDistance(selectedCustomers[i].y, selectedCustomers[i].x, selectedCustomers[i + 1].y, selectedCustomers[i + 1].x);
+                }
+                curSum += getDistance(selectedCustomers[i].y, selectedCustomers[i].x,
+                        selectedCustomers[i + 1].y, selectedCustomers[i + 1].x);
             }
-            curSum += getDistance(selectedCustomers[customerCnt - 1].y, selectedCustomers[customerCnt - 1].x, destination.y, destination.x);
+            curSum += getDistance(selectedCustomers[customerCnt - 1].y,
+                    selectedCustomers[customerCnt - 1].x, destination.y, destination.x);
 
             if (curSum < answer) {
                 answer = curSum;
@@ -70,7 +77,8 @@ public class SWEA_1247_최적_경로 {
         return Math.abs(stX - edX) + Math.abs(stY - edY);
     }
 
-    private static class Pair{
+    private static class Pair {
+
         int y;
         int x;
 

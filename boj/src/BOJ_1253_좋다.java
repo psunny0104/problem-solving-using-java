@@ -4,10 +4,12 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class BOJ_1253_좋다 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt)
+                .toArray();
         Arrays.sort(numbers);
 
         int answer = 0;

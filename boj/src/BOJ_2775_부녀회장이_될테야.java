@@ -6,6 +6,7 @@ public class BOJ_2775_부녀회장이_될테야 {
 
     static int T, K, N;
     static int[][] map; // 층, 호
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -30,7 +31,7 @@ public class BOJ_2775_부녀회장이_될테야 {
         }
         for (int i = 1; i <= 14; i++) {
             for (int j = 1; j <= 14; j++) {
-                map[i][j] = getValue(i-1, j);
+                map[i][j] = getValue(i - 1, j);
             }
         }
     }

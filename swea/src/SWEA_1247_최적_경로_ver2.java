@@ -9,6 +9,7 @@ public class SWEA_1247_최적_경로_ver2 {
     static Pair start, destination;
     static boolean[] isSelected;
     static Pair[] customerPairs;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -23,20 +24,24 @@ public class SWEA_1247_최적_경로_ver2 {
             isSelected = new boolean[customerCnt];
 
             start = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
-            destination = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
+            destination = new Pair(Integer.parseInt(in.nextToken()),
+                    Integer.parseInt(in.nextToken()));
             for (int i = 0; i < customerCnt; i++) {
-                customerPairs[i] = new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken()));
+                customerPairs[i] = new Pair(Integer.parseInt(in.nextToken()),
+                        Integer.parseInt(in.nextToken()));
             }
 
             answer = Integer.MAX_VALUE;
-            search(start,0, 0);
+            search(start, 0, 0);
             sb.append("#").append(tc).append(" ").append(answer).append("\n");
         }
         System.out.print(sb);
     }
 
     private static void search(Pair cur, int cnt, int sum) {
-        if (sum > answer) return;
+        if (sum > answer) {
+            return;
+        }
 
         if (cnt == customerCnt) {
             answer = Math.min(answer, sum + getDistance(cur, destination));
@@ -59,7 +64,8 @@ public class SWEA_1247_최적_경로_ver2 {
         return Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
     }
 
-    private static class Pair{
+    private static class Pair {
+
         int y;
         int x;
 

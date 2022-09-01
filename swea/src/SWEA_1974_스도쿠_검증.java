@@ -1,8 +1,13 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class SWEA_1974_스도쿠_검증 {
+
     public static void main(String[] args) throws IOException {
         firstSolution();
     }
@@ -44,7 +49,9 @@ public class SWEA_1974_스도쿠_검증 {
                         break;
                     }
                 }
-                if(stopFlag) break;
+                if (stopFlag) {
+                    break;
+                }
             }
 
             // 박스
@@ -67,9 +74,13 @@ public class SWEA_1974_스도쿠_검증 {
                                 break;
                             }
                         }
-                        if(stopFlag) break;
+                        if (stopFlag) {
+                            break;
+                        }
                     }
-                    if(stopFlag) break;
+                    if (stopFlag) {
+                        break;
+                    }
                 }
             }
             sb.append("#").append(t).append(" ").append(answer).append("\n");

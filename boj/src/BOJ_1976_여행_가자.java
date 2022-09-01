@@ -7,6 +7,7 @@ public class BOJ_1976_여행_가자 {
 
     static int n, m;
     static int[] p, candidates;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -15,7 +16,7 @@ public class BOJ_1976_여행_가자 {
         m = Integer.parseInt(br.readLine());
 
         makeSet();
-        candidates = new int[m+1];
+        candidates = new int[m + 1];
 
         for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -30,7 +31,6 @@ public class BOJ_1976_여행_가자 {
         for (int i = 1; i <= m; i++) {
             candidates[i] = Integer.parseInt(st.nextToken());
         }
-
 
         if (check()) {
             System.out.println("YES");

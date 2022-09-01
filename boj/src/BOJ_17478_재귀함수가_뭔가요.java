@@ -1,12 +1,13 @@
-import java.util.Scanner;
 import java.io.IOException;
+import java.util.Scanner;
 
-public class BOJ_17478_재귀함수가_뭔가요  {
+public class BOJ_17478_재귀함수가_뭔가요 {
 
     static StringBuilder sb = new StringBuilder();
     static String UNDERBAR = "____";
 
-    static String first = "어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.\n";;
+    static String first = "어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.\n";
+    ;
     static String[] stmts = {
             "\"재귀함수가 뭔가요?\"\n",
             "\"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.\n",
@@ -41,7 +42,7 @@ public class BOJ_17478_재귀함수가_뭔가요  {
             return;
         }
         // ELSE
-        for(int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 3; i++) {
             appendUnderbar(n);
             sb.append(stmts[i]);
         }
@@ -56,7 +57,7 @@ public class BOJ_17478_재귀함수가_뭔가요  {
 
 
     private static void appendUnderbar(int cnt) {
-        for(int i = N; i > cnt; i--) {
+        for (int i = N; i > cnt; i--) {
             sb.append(UNDERBAR);
         }
     }

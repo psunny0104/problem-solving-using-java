@@ -10,6 +10,7 @@ public class BOJ_8983_사냥꾼 {
     static int arrowsCnt, animalsCnt, range, answer;
     static ArrayList<Integer> arrows = new ArrayList<>();
     static ArrayList<Pair> animals = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -25,7 +26,8 @@ public class BOJ_8983_사냥꾼 {
 
         for (int i = 0; i < animalsCnt; i++) {
             in = new StringTokenizer(br.readLine());
-            animals.add(new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken())));
+            animals.add(
+                    new Pair(Integer.parseInt(in.nextToken()), Integer.parseInt(in.nextToken())));
         }
 
         Collections.sort(arrows);
@@ -62,6 +64,7 @@ public class BOJ_8983_사냥꾼 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

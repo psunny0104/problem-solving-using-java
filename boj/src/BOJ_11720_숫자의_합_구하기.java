@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class BOJ_11720_숫자의_합_구하기 {
+
     public static void main(String[] args) {
         firstSolution();
     }

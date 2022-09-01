@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_11724_연결_요소의_개수 {
+
     static int V, E;
     static ArrayList[] adjList;
     static boolean[] visited;
     static int answer;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -30,7 +32,7 @@ public class BOJ_11724_연결_요소의_개수 {
             adjList[ed].add(st);
         }
 
-        for (int i = 1; i<= V; i++) {
+        for (int i = 1; i <= V; i++) {
             if (visited[i]) {
                 continue;
             }
@@ -42,8 +44,9 @@ public class BOJ_11724_연결_요소의_개수 {
     }
 
     private static void dfs(int idx) {
-        if(visited[idx])
+        if (visited[idx]) {
             return;
+        }
 
         visited[idx] = true;
         List<Integer> curIdxAdjList = adjList[idx];

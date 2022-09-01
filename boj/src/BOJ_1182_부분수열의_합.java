@@ -9,6 +9,7 @@ public class BOJ_1182_부분수열의_합 {
     static int N, S, answer;
     static int[] numbers;
     static boolean[] isSelected;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -20,7 +21,7 @@ public class BOJ_1182_부분수열의_합 {
 
         Arrays.sort(numbers);
         search(0, 0);
-        answer = S == 0 ? answer - 1:answer;
+        answer = S == 0 ? answer - 1 : answer;
         System.out.println(answer);
     }
 
@@ -33,7 +34,6 @@ public class BOJ_1182_부분수열의_합 {
             }
             return;
         }
-
 
         search(cnt + 1, sum + numbers[cnt]);
         search(cnt + 1, sum);

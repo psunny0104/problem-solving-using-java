@@ -1,10 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BOJ_2667_단지번호붙이기 {
+
     static int size;
     static char[][] map;
     static boolean[][] visited;
@@ -20,14 +23,15 @@ public class BOJ_2667_단지번호붙이기 {
         visited = new boolean[size][size];
         ArrayList<Integer> numbers = new ArrayList<>();
 
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             map[i] = br.readLine().toCharArray();
         }
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (visited[i][j])
+                if (visited[i][j]) {
                     continue;
+                }
                 if (map[i][j] == '0') {
                     continue;
                 }
@@ -52,21 +56,24 @@ public class BOJ_2667_단지번호붙이기 {
             int cy = curPair.y;
             int cx = curPair.x;
 
-            for(int dir = 0; dir < 4; dir++) {
+            for (int dir = 0; dir < 4; dir++) {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if(ny < 0 || nx < 0 || ny >= size || nx >= size)
+                if (ny < 0 || nx < 0 || ny >= size || nx >= size) {
                     continue;
+                }
 
-                if(visited[ny][nx])
+                if (visited[ny][nx]) {
                     continue;
+                }
 
-                if(map[ny][nx] == '0')
+                if (map[ny][nx] == '0') {
                     continue;
+                }
 
                 visited[ny][nx] = true;
-                q.add(new Pair(ny,nx));
+                q.add(new Pair(ny, nx));
                 cnt++;
             }
         }
@@ -74,6 +81,7 @@ public class BOJ_2667_단지번호붙이기 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

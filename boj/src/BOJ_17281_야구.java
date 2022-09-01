@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_17281_야구 {
 
@@ -10,6 +13,7 @@ public class BOJ_17281_야구 {
     static int[] selectedPlayers, numbers = {2, 3, 4, 5, 6, 7, 8, 9};
     static boolean[] isSelected;
     static Queue<Integer> order = new ArrayDeque<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -42,8 +46,10 @@ public class BOJ_17281_야구 {
             return;
         }
 
-        for (int i = 0; i < MAX-1; i++) {
-            if(isSelected[i]) continue;
+        for (int i = 0; i < MAX - 1; i++) {
+            if (isSelected[i]) {
+                continue;
+            }
 
             isSelected[i] = true;
             selectedPlayers[cnt] = numbers[i];
@@ -91,9 +97,9 @@ public class BOJ_17281_야구 {
             bases[2] = 0;
         }
         for (int i = 2; i >= 1; i--) {
-            if (bases[i-1] == 1) {
+            if (bases[i - 1] == 1) {
                 bases[i] = 1;
-                bases[i-1] = 0;
+                bases[i - 1] = 0;
             }
         }
         bases[0] = 1;

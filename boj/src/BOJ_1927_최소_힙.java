@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 public class BOJ_1927_최소_힙 {
 
     static int N, input;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

@@ -1,7 +1,15 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BOJ_1157_단어_공부 {
+
     public static void main(String[] args) throws IOException {
         //firstSolution();
         secondSolution();
@@ -19,7 +27,8 @@ public class BOJ_1157_단어_공부 {
             alphabetList.merge(target, 1, Integer::sum);
         }
 
-        ArrayList<Map.Entry<Character, Integer>> alphabetCnt = new ArrayList<>(alphabetList.entrySet());
+        ArrayList<Map.Entry<Character, Integer>> alphabetCnt = new ArrayList<>(
+                alphabetList.entrySet());
         alphabetCnt.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
 
         sb.append(alphabetCnt.get(0).getKey());

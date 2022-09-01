@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class BOJ_1181_단어_정렬 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -12,7 +13,7 @@ public class BOJ_1181_단어_정렬 {
         int n = Integer.parseInt(br.readLine());
         HashSet<String> words = new HashSet<>();
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             String input = br.readLine();
             words.add(input);
         }

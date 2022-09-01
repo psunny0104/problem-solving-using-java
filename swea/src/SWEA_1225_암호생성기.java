@@ -1,9 +1,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
 
 public class SWEA_1225_암호생성기 {
 
@@ -41,8 +41,9 @@ public class SWEA_1225_암호생성기 {
 
     private static boolean cycle() {
         for (int i = 1; i <= 5; i++) {
-            if(move(i))
+            if (move(i)) {
                 return true;
+            }
         }
         return false;
     }

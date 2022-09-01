@@ -22,7 +22,7 @@ public class BOJ_14501_퇴사 {
         isSelected = new boolean[N];
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            schedules[i] = new Schedule(i+1,
+            schedules[i] = new Schedule(i + 1,
                     Integer.parseInt(st.nextToken()),
                     Integer.parseInt(st.nextToken()));
         }
@@ -69,7 +69,7 @@ public class BOJ_14501_퇴사 {
         int candidatesSize = candidates.size();
         for (int i = 1; i < candidatesSize; i++) {
             Schedule curDay = candidates.get(i);
-            Schedule prevDay = candidates.get(i-1);
+            Schedule prevDay = candidates.get(i - 1);
             if (curDay.day - prevDay.day + 1 <= prevDay.periodFromToday) {
                 return -1;
             }

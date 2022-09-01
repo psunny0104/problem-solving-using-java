@@ -8,6 +8,7 @@ public class SWEA_2117_홈_방범_서비스 {
 
     static int T, citySize, costPerHome, LIMIT_K, curHomeCnt, answer;
     static ArrayList<Pair> homes = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -77,7 +78,8 @@ public class SWEA_2117_홈_방범_서비스 {
         return k * k + (k - 1) * (k - 1);
     }
 
-    private static class Pair{
+    private static class Pair {
+
         int y;
         int x;
 

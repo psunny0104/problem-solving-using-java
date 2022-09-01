@@ -12,6 +12,7 @@ public class SWEA_2819_격자판의_숫자_이어_붙이기 {
     static int[][] map = new int[MAX][MAX];
     static char[] selectedNumbers;
     static HashSet<String> hs = new HashSet<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

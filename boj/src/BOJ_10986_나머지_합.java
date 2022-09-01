@@ -1,10 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_10986_나머지_합 {
+
     static int N, M;
     static int[] accSum, numCnts;
     static long answer;
@@ -26,7 +26,7 @@ public class BOJ_10986_나머지_합 {
         }
 
         answer += numCnts[0];
-        for(int i = 0; i < M; i++){
+        for (int i = 0; i < M; i++) {
             answer += ((long) numCnts[i] * (numCnts[i] - 1)) / 2;
         }
 

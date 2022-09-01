@@ -11,6 +11,7 @@ public class SWEA_1238_Contact_ver2 {
     static int adjListCnt, startNode, MAX = 101, answer;
     static boolean[] isVisited;
     static HashMap<Integer, ArrayList<Pair>> adjList;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -26,7 +27,7 @@ public class SWEA_1238_Contact_ver2 {
 
             in = new StringTokenizer(br.readLine());
             int from, to;
-            for (int i = 0; i < adjListCnt/2; i++) {
+            for (int i = 0; i < adjListCnt / 2; i++) {
                 from = Integer.parseInt(in.nextToken());
                 to = Integer.parseInt(in.nextToken());
                 adjList.computeIfAbsent(from, k -> new ArrayList<>());
@@ -66,6 +67,7 @@ public class SWEA_1238_Contact_ver2 {
     }
 
     private static class Pair {
+
         int value;
         int level;
 

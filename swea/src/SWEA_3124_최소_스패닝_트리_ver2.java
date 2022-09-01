@@ -50,10 +50,14 @@ public class SWEA_3124_최소_스패닝_트리_ver2 {
             while (true) {
                 Vertex minVertex = pq.poll();
 
-                if (isVisited[minVertex.no]) continue;
+                if (isVisited[minVertex.no]) {
+                    continue;
+                }
                 isVisited[minVertex.no] = true;
                 minWeightSum += minVertex.weight;
-                if (++cnt == V) break;
+                if (++cnt == V) {
+                    break;
+                }
 
                 for (Node temp = adjList[minVertex.no]; temp != null; temp = temp.next) {
                     if (!isVisited[temp.vertex] && minEdge[temp.vertex] > temp.weight) {
@@ -69,6 +73,7 @@ public class SWEA_3124_최소_스패닝_트리_ver2 {
     }
 
     private static class Node {
+
         int vertex;
         int weight;
         Node next;
@@ -82,6 +87,7 @@ public class SWEA_3124_최소_스패닝_트리_ver2 {
     }
 
     private static class Vertex {
+
         int no;
         int weight;
 

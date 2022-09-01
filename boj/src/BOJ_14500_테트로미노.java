@@ -10,6 +10,7 @@ public class BOJ_14500_테트로미노 {
     static boolean[][] isVisited;
     static int[] dr = {0, 1, 0, -1}; // 동, 남, 서, 북
     static int[] dc = {1, 0, -1, 0};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -28,7 +29,7 @@ public class BOJ_14500_테트로미노 {
         for (int i = 0; i < R; i++) {
             for (int j = 0; j < C; j++) {
                 isVisited[i][j] = true;
-                make(i, j,  1, map[i][j]);
+                make(i, j, 1, map[i][j]);
                 makeT(i, j, map[i][j]);
                 isVisited[i][j] = false;
             }
@@ -47,8 +48,12 @@ public class BOJ_14500_테트로미노 {
             int nr = r + dr[d];
             int nc = c + dc[d];
 
-            if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
-            if (isVisited[nr][nc]) continue;
+            if (nr < 0 || nc < 0 || nr >= R || nc >= C) {
+                continue;
+            }
+            if (isVisited[nr][nc]) {
+                continue;
+            }
 
             isVisited[nr][nc] = true;
             make(nr, nc, cnt + 1, sum + map[nr][nc]);
@@ -66,11 +71,15 @@ public class BOJ_14500_테트로미노 {
                 int nr = r + dr[d % 4];
                 int nc = c + dc[d % 4];
 
-                if (nr < 0 || nc < 0 || nr >= R || nc >= C) break;
+                if (nr < 0 || nc < 0 || nr >= R || nc >= C) {
+                    break;
+                }
                 makeCnt++;
                 phaseSum += map[nr][nc];
             }
-            if (makeCnt != 4) continue;
+            if (makeCnt != 4) {
+                continue;
+            }
             answer = Math.max(answer, phaseSum);
         }
     }

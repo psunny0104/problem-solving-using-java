@@ -10,7 +10,9 @@ public class BOJ_7576_토마토 {
     static int y, x;
     static int[][] map;
     static int[][] dist;
-    static Queue<Pair> q = new LinkedList<>();;
+    static Queue<Pair> q = new LinkedList<>();
+    ;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -29,7 +31,7 @@ public class BOJ_7576_토마토 {
                 if (map[i][j] == 1) {
                     q.add(new Pair(i, j));
                     dist[i][j] = 1;
-                } else if(map[i][j] == -1) {
+                } else if (map[i][j] == -1) {
                     dist[i][j] = -1;
                 }
             }
@@ -62,18 +64,21 @@ public class BOJ_7576_토마토 {
             int cy = curPair.y;
             int cx = curPair.x;
 
-            for(int dir = 0; dir < 4; dir++) {
+            for (int dir = 0; dir < 4; dir++) {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if (ny < 0 || nx < 0 || ny >= y || nx >= x)
+                if (ny < 0 || nx < 0 || ny >= y || nx >= x) {
                     continue;
+                }
 
-                if (dist[ny][nx] != 0)
+                if (dist[ny][nx] != 0) {
                     continue;
+                }
 
-                if (map[ny][nx] != 0)
+                if (map[ny][nx] != 0) {
                     continue;
+                }
 
                 dist[ny][nx] = dist[cy][cx] + 1;
                 q.add(new Pair(ny, nx));
@@ -83,6 +88,7 @@ public class BOJ_7576_토마토 {
     }
 
     private static class Pair {
+
         int y;
         int x;
 

@@ -12,6 +12,7 @@ public class BOJ_4963_섬의_개수 {
     static boolean[][] isVisited;
     static int[] dr = {0, 0, 1, -1, 1, -1, 1, -1};
     static int[] dc = {1, -1, 0, 0, 1, -1, -1, 1};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -66,9 +67,15 @@ public class BOJ_4963_섬의_개수 {
                 int nr = cr + dr[dir];
                 int nc = cc + dc[dir];
 
-                if (nr < 0 || nc <0 || nr >= R || nc >= C) continue;
-                if (isVisited[nr][nc]) continue;
-                if (map[nr][nc] == 0) continue;
+                if (nr < 0 || nc < 0 || nr >= R || nc >= C) {
+                    continue;
+                }
+                if (isVisited[nr][nc]) {
+                    continue;
+                }
+                if (map[nr][nc] == 0) {
+                    continue;
+                }
 
                 queue.offer(new Pair(nr, nc));
                 isVisited[nr][nc] = true;
@@ -76,7 +83,8 @@ public class BOJ_4963_섬의_개수 {
         }
     }
 
-    private static class Pair{
+    private static class Pair {
+
         int r;
         int c;
 

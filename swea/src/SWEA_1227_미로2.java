@@ -12,6 +12,7 @@ public class SWEA_1227_미로2 {
     static int[] dx = {1, -1, 0, 0};
     static int LIMIT = 100;
     static Pair START;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -73,7 +74,8 @@ public class SWEA_1227_미로2 {
         return 0;
     }
 
-    private static class Pair{
+    private static class Pair {
+
         private int y;
         private int x;
 

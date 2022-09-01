@@ -7,6 +7,7 @@ public class BOJ_1940_주몽 {
 
     static int N, M;
     static int[] numbers;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
@@ -15,7 +16,7 @@ public class BOJ_1940_주몽 {
         numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         Arrays.sort(numbers);
 
-        int answer= 0;
+        int answer = 0;
         for (int i = 0; i < N; i++) {
             int first = numbers[i];
             for (int j = i + 1; j < N; j++) {

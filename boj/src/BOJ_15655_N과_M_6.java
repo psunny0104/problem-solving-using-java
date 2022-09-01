@@ -5,10 +5,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_15655_N과_M_6 {
+
     // 조합
     static StringBuilder sb = new StringBuilder();
     static int N, M;
     static int[] numbers, inputs;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -20,12 +22,12 @@ public class BOJ_15655_N과_M_6 {
         inputs = new int[N];
 
         in = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             inputs[i] = Integer.parseInt(in.nextToken());
         }
 
         Arrays.sort(inputs);
-        comb(0 , 0);
+        comb(0, 0);
         System.out.print(sb);
     }
 
@@ -38,7 +40,7 @@ public class BOJ_15655_N과_M_6 {
             return;
         }
 
-        for(int i = start; i < N; i++) {
+        for (int i = start; i < N; i++) {
             numbers[cnt] = inputs[i];
             comb(cnt + 1, i + 1);
         }

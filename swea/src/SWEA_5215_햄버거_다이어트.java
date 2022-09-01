@@ -11,6 +11,7 @@ public class SWEA_5215_햄버거_다이어트 {
     static int N, limit, answer;
     static Element[] elements;
     static Element[] selectedElements;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -47,7 +48,8 @@ public class SWEA_5215_햄버거_다이어트 {
         if (cnt == k) {
             int sum = Arrays.stream(selectedElements).mapToInt(o -> o.cal).sum();
             if (sum <= limit) {
-                answer = Math.max(answer, Arrays.stream(selectedElements).mapToInt(o -> o.score).sum());
+                answer = Math.max(answer,
+                        Arrays.stream(selectedElements).mapToInt(o -> o.score).sum());
             }
             return;
         }
@@ -59,6 +61,7 @@ public class SWEA_5215_햄버거_다이어트 {
     }
 
     private static class Element {
+
         int score;
         int cal;
 

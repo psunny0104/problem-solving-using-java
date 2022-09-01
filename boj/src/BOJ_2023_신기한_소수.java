@@ -6,6 +6,7 @@ public class BOJ_2023_신기한_소수 {
 
     static int N;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
@@ -35,7 +36,9 @@ public class BOJ_2023_신기한_소수 {
 
             int newNumber = number * 10 + i;
 
-            if (!isPrime(newNumber)) continue;
+            if (!isPrime(newNumber)) {
+                continue;
+            }
             search(cnt + 1, newNumber);
         }
     }

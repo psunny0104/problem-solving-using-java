@@ -3,10 +3,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class BOJ_3040_백설_공주와_일곱_난쟁이 {
+
     static int LIMIT = 9;
     static int TARGET = 2;
     static boolean[] isSelected = new boolean[LIMIT];
     static int[] numbers = new int[LIMIT];
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

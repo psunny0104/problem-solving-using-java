@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_2563_색종이 {
+
     static int[][] map = new int[100 + 1][100 + 1];
     static int paperCnt;
     static int LEN = 10;
@@ -25,7 +26,7 @@ public class BOJ_2563_색종이 {
 //            int offsetX = stX + 1;
             for (int y = stY; y < stY + LEN; y++) {
                 for (int x = stX; x < stX + LEN; x++) {
-                    if(map[y][x] == 0) {
+                    if (map[y][x] == 0) {
                         map[y][x] = 1;
                         answer++;
                     }

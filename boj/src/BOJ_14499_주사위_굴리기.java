@@ -10,6 +10,7 @@ public class BOJ_14499_주사위_굴리기 {
     static int[][] map;
     static int[] dr = {0, 0, 0, -1, 1};
     static int[] dc = {0, 1, -1, 0, 0}; // 동으로, 서, 북, 남
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -98,6 +99,7 @@ public class BOJ_14499_주사위_굴리기 {
     }
 
     private static class Dice {
+
         int r, c;
 
         int up = 0;

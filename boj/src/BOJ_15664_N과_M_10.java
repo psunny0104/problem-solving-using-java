@@ -7,10 +7,12 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 public class BOJ_15664_N과_M_10 {
+
     // 조합 -> 결과 중복 제거
     static int N, M;
     static int[] numbers, prevNumbers, inputs;
     static Set<String> linkedHashSet = new LinkedHashSet<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -33,7 +35,7 @@ public class BOJ_15664_N과_M_10 {
     }
 
     private static void print() {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (String s : linkedHashSet) {
             sb.append(s);
         }

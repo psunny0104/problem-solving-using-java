@@ -31,7 +31,7 @@ public class SWEA_1767_프로세서_연결하기 {
                 for (int j = 0; j < N; j++) {
                     map[i][j] = Integer.parseInt(st.nextToken());
                     if (map[i][j] == 1) {
-                        if (i == 0 || j == 0 || i == N-1 || j == N-1) {
+                        if (i == 0 || j == 0 || i == N - 1 || j == N - 1) {
                             continue;
                         }
                         cores.add(new Core(i, j));
@@ -42,7 +42,7 @@ public class SWEA_1767_프로세서_연결하기 {
             coreSize = cores.size();
             coreCntAnswer = 0;
             distSumAnswer = Integer.MAX_VALUE;
-            search(0,  0, 0); // 코어 인덱스, 방향, 연결된 코어 수, 길이
+            search(0, 0, 0); // 코어 인덱스, 방향, 연결된 코어 수, 길이
             sb.append("#").append(tc).append(" ").append(distSumAnswer).append("\n");
         }
         System.out.print(sb);
@@ -126,7 +126,7 @@ public class SWEA_1767_프로세서_연결하기 {
     }
 
     private static void print(int idx) {
-        System.out.println("선택된idx: "+idx+"====================");
+        System.out.println("선택된idx: " + idx + "====================");
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
@@ -138,6 +138,7 @@ public class SWEA_1767_프로세서_연결하기 {
     }
 
     private static class Core {
+
         int r, c;
 
         public Core(int r, int c) {

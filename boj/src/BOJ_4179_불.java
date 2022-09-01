@@ -1,7 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_4179_불 {
 
@@ -50,7 +55,7 @@ public class BOJ_4179_불 {
     }
 
     private static void moveJ() {
-        if (J.r == R-1 || J.r == 0 || J.c == C-1 || J.c == 0) {
+        if (J.r == R - 1 || J.r == 0 || J.c == C - 1 || J.c == 0) {
             candidates.offer(jDist[J.r][J.c] + 1);
             return;
         }
@@ -79,14 +84,14 @@ public class BOJ_4179_불 {
                     continue;
                 }
 
-                if (fireDist[nr][nc] != -1 && fireDist[nr][nc] <= jDist[cr][cc]+1) {
+                if (fireDist[nr][nc] != -1 && fireDist[nr][nc] <= jDist[cr][cc] + 1) {
                     continue;
                 }
 
                 if (map[nr][nc] == '.') {
                     jDist[nr][nc] = jDist[cr][cc] + 1;
                     q.offer(new Pair(nr, nc));
-                    if (nr == R-1 || nr == 0 || nc == C-1 || nc == 0) {
+                    if (nr == R - 1 || nr == 0 || nc == C - 1 || nc == 0) {
                         candidates.offer(jDist[nr][nc] + 1);
                         return;
                     }
@@ -132,6 +137,7 @@ public class BOJ_4179_불 {
     }
 
     private static class Pair {
+
         int r, c;
 
         public Pair(int r, int c) {

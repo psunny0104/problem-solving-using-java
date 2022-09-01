@@ -11,6 +11,7 @@ public class BOJ_17406_배열_돌리기_4 {
     static Operation[] operations;
     static boolean[] selected;
     static int[] selNumbers;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -107,7 +108,7 @@ public class BOJ_17406_배열_돌리기_4 {
     private static void print() {
         StringBuilder sb = new StringBuilder();
         sb.append("================================\n");
-        for (int i = 1; i <= Y ; i++) {
+        for (int i = 1; i <= Y; i++) {
             for (int j = 1; j <= X; j++) {
                 sb.append(map[i][j]).append(" ");
             }
@@ -118,6 +119,7 @@ public class BOJ_17406_배열_돌리기_4 {
     }
 
     private static class Operation {
+
         int R;
         int C;
         int S;

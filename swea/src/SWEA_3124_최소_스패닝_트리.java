@@ -9,6 +9,7 @@ public class SWEA_3124_최소_스패닝_트리 {
     static int T, V, E;
     static Edge[] edgeList;
     static int[] p;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -77,6 +78,7 @@ public class SWEA_3124_최소_스패닝_트리 {
     }
 
     private static class Edge implements Comparable<Edge> {
+
         int from;
         int to;
         int weight;

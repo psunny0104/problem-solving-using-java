@@ -137,6 +137,7 @@ public class BOJ_15683_감시 {
     }
 
     private static class CCTV {
+
         int r;
         int c;
         int type;

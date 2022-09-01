@@ -9,6 +9,7 @@ public class BOJ_3109_빵집 {
     static char[][] map;
     static boolean[][] isSelected;
     static int[] dr = {-1, 0, 1};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());

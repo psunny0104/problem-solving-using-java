@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class BOJ_1138_한_줄로_서기 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in;
@@ -19,11 +20,11 @@ public class BOJ_1138_한_줄로_서기 {
             leftPeopleCnts[i] = Integer.parseInt(in.nextToken());
         }
 
-        for(int i = n; i >= 1; i--){
+        for (int i = n; i >= 1; i--) {
             order.add(leftPeopleCnts[i], i);
         }
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             sb.append(order.get(i)).append(" ");
         }
 

@@ -9,6 +9,7 @@ public class BOJ_15650_N과_M_2 {
     static int N, M;
     static int[] numbers;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -30,7 +31,7 @@ public class BOJ_15650_N과_M_2 {
             return;
         }
 
-        for(int i = start; i <= N; i++) {
+        for (int i = start; i <= N; i++) {
             numbers[cnt] = i;
             comb(cnt + 1, i + 1);
         }

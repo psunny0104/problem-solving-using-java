@@ -1,13 +1,18 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 public class BOJ_15665_N과_M_11 {
+
     // 중복 순열 -> 결과 중복 제거
     static int N, M;
     static int[] numbers, inputs;
     static Set<String> hashSet = new LinkedHashSet<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());

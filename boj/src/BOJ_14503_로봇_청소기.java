@@ -11,6 +11,7 @@ public class BOJ_14503_로봇_청소기 {
     static Robot rb;
     static int[] dr = {0, -1, 0, 1}; // 서, 북, 동, 남
     static int[] dc = {-1, 0, 1, 0};
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -72,7 +73,7 @@ public class BOJ_14503_로봇_청소기 {
         if (map[nr][nc] == 1) {
             return true;
         }
-        if ( nr == 0 || nc == 0 || nr >= R-1 || nc >= C-1) {
+        if (nr == 0 || nc == 0 || nr >= R - 1 || nc >= C - 1) {
             rb.dir = (rb.dir + 3) % 4;
             return true;
         }
@@ -93,7 +94,7 @@ public class BOJ_14503_로봇_청소기 {
         int nr = rb.r + dr[rb.dir];
         int nc = rb.c + dc[rb.dir];
 
-        if (nr <= 0 || nc <= 0 || nr >= R-1 || nc >= C-1) {
+        if (nr <= 0 || nc <= 0 || nr >= R - 1 || nc >= C - 1) {
             rb.dir = (rb.dir + 3) % 4;
             return true;
         }
@@ -113,6 +114,7 @@ public class BOJ_14503_로봇_청소기 {
     }
 
     private static class Robot {
+
         int r, c, dir;
 
         public Robot(int r, int c, int dir) {

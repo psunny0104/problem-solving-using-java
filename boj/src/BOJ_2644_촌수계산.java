@@ -1,13 +1,18 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class BOJ_2644_촌수계산 {
 
     static int N, adjListCnt, st, dst, answer = -1;
     static List<ArrayList<Integer>> adjList = new ArrayList<>();
     static int[] dist;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in;

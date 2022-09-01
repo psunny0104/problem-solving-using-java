@@ -9,7 +9,7 @@ public class BOJ_7562_나이트의_이동 {
 
     static int N;
     static Pair start, dest;
-    static int[] dr = {-1, -2 ,-2 ,-1 ,1, 2, 2, 1};
+    static int[] dr = {-1, -2, -2, -1, 1, 2, 2, 1};
     static int[] dc = {-2, -1, 1, 2, 2, 1, -1, -2};
 
     public static void main(String[] args) throws IOException {
@@ -46,8 +46,12 @@ public class BOJ_7562_나이트의_이동 {
                 int nr = cr + dr[dir];
                 int nc = cc + dc[dir];
 
-                if (nr < 0 || nc < 0 || nr >= N || nc >= N) continue;
-                if (dist[nr][nc] > 0) continue;
+                if (nr < 0 || nc < 0 || nr >= N || nc >= N) {
+                    continue;
+                }
+                if (dist[nr][nc] > 0) {
+                    continue;
+                }
 
                 q.offer(new Pair(nr, nc));
                 dist[nr][nc] = dist[cr][cc] + 1;
@@ -61,6 +65,7 @@ public class BOJ_7562_나이트의_이동 {
     }
 
     private static class Pair {
+
         int r;
         int c;
 

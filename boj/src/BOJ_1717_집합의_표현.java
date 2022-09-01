@@ -4,10 +4,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BOJ_1717_집합의_표현 {
-    
+
     static int N, M;
     static int[] p;
     static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

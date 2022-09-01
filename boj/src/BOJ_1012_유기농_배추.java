@@ -7,6 +7,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ_1012_유기농_배추 {
+
     static int[] dy = {0, 1, 0, -1};
     static int[] dx = {1, 0, -1, 0};
 
@@ -18,7 +19,7 @@ public class BOJ_1012_유기농_배추 {
         int[][] map = new int[50][50];
         boolean[][] visited = new boolean[50][50];
 
-        for(int tc = 1; tc <= t; tc++) {
+        for (int tc = 1; tc <= t; tc++) {
             in = new StringTokenizer(br.readLine(), " ");
             int x = Integer.parseInt(in.nextToken());
             int y = Integer.parseInt(in.nextToken());
@@ -29,15 +30,15 @@ public class BOJ_1012_유기농_배추 {
                 Arrays.fill(visited[i], false);
             }
 
-            for(int i = 0; i < cabbageCnt; i++) {
+            for (int i = 0; i < cabbageCnt; i++) {
                 in = new StringTokenizer(br.readLine(), " ");
                 int cx = Integer.parseInt(in.nextToken());
                 int cy = Integer.parseInt(in.nextToken());
                 map[cy][cx] = 1;
             }
 
-            for(int i = 0; i < y; i++){
-                for(int j = 0; j < x; j++){
+            for (int i = 0; i < y; i++) {
+                for (int j = 0; j < x; j++) {
                     if (visited[i][j]) {
                         continue;
                     }
@@ -53,7 +54,8 @@ public class BOJ_1012_유기농_배추 {
         System.out.print(sb);
     }
 
-    private static void bfs(int y, int x, int limitY, int limitX, int[][] map, boolean[][] visited) {
+    private static void bfs(int y, int x, int limitY, int limitX, int[][] map,
+            boolean[][] visited) {
         Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(y, x));
         visited[y][x] = true;
@@ -63,11 +65,11 @@ public class BOJ_1012_유기농_배추 {
             int cy = pair.getY();
             int cx = pair.getX();
 
-            for(int dir = 0; dir < 4; dir++) {
+            for (int dir = 0; dir < 4; dir++) {
                 int ny = cy + dy[dir];
                 int nx = cx + dx[dir];
 
-                if(!isValid(ny, nx, limitY, limitX)) {
+                if (!isValid(ny, nx, limitY, limitX)) {
                     continue;
                 }
 
@@ -75,7 +77,7 @@ public class BOJ_1012_유기농_배추 {
                     continue;
                 }
 
-                if(map[ny][nx] != 1) {
+                if (map[ny][nx] != 1) {
                     continue;
                 }
 
@@ -86,13 +88,15 @@ public class BOJ_1012_유기농_배추 {
     }
 
     private static boolean isValid(int ny, int nx, int limitY, int limitX) {
-        if (ny < 0 || nx < 0 || ny >= limitY || nx >= limitX)
+        if (ny < 0 || nx < 0 || ny >= limitY || nx >= limitX) {
             return false;
+        }
 
         return true;
     }
 
     private static class Pair {
+
         private int y;
         private int x;
 

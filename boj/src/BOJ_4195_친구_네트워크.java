@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class BOJ_4195_친구_네트워크 {
 
@@ -9,6 +12,7 @@ public class BOJ_4195_친구_네트워크 {
     static List<Integer> p = new ArrayList<>();
     static HashMap<String, Integer> nameIndices = new HashMap<>();
     static int hmCnt = 0;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();

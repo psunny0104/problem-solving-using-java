@@ -10,6 +10,7 @@ public class BOJ_1197_최소_스패닝_트리 {
     static int V, E;
     static Edge[] edgeList;
     static int[] p;
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -67,13 +68,14 @@ public class BOJ_1197_최소_스패닝_트리 {
     }
 
     private static void make() {
-        p = new int[V+1];
+        p = new int[V + 1];
         for (int i = 0; i < V; i++) {
             p[i] = i;
         }
     }
 
-    private static class Edge implements Comparable<Edge>{
+    private static class Edge implements Comparable<Edge> {
+
         int from, to, weight;
 
         public Edge(int from, int to, int weight) {

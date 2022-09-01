@@ -1,13 +1,19 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class BOJ_2468_안전_영역 {
+
     static int N, answer = 1;
     static int[][] map;
     static boolean[][] isVisited;
     static TreeSet<Integer> heights = new TreeSet<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in;
@@ -88,7 +94,8 @@ public class BOJ_2468_안전_영역 {
         }
     }
 
-    private static class Pair{
+    private static class Pair {
+
         private int y;
         private int x;
 
