@@ -51,9 +51,7 @@ public class BOJ_1238_파티 {
         PriorityQueue<Node> pq = new PriorityQueue<>();
 
         dist[start] = 0;
-        for (Node cur = adjList[start]; cur != null; cur = cur.next) {
-            pq.offer(new Node(start, 0));
-        }
+        pq.offer(new Node(start, 0));
 
         while (!pq.isEmpty()) {
             Node cur = pq.poll();
