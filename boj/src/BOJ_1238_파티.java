@@ -9,7 +9,6 @@ public class BOJ_1238_파티 {
 
     static int V, E, X;
     static Node[] adjList, adjListReverse;
-    static boolean[] isVisited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -45,9 +44,7 @@ public class BOJ_1238_파티 {
 
     private static int[] dijkstra(int start, Node[] adjList) {
         int[] dist = new int[V + 1];
-        isVisited = new boolean[V + 1];
         Arrays.fill(dist, 100001);
-        Arrays.fill(isVisited, false);
         PriorityQueue<Node> pq = new PriorityQueue<>();
 
         dist[start] = 0;
@@ -57,18 +54,8 @@ public class BOJ_1238_파티 {
             Node cur = pq.poll();
             int curVertex = cur.vertex;
 
-            if (isVisited[curVertex]) {
-                continue;
-            }
-
-            isVisited[curVertex] = true;
-
             for (Node temp = adjList[curVertex]; temp != null; temp = temp.next) {
                 int nextVertex = temp.vertex;
-
-                if (isVisited[nextVertex]) {
-                    continue;
-                }
 
                 if (dist[nextVertex] > dist[curVertex] + temp.weight) {
                     dist[nextVertex] = dist[curVertex] + temp.weight;
