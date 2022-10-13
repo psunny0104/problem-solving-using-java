@@ -39,8 +39,16 @@ public class BOJ_5972_택배_배송 {
         PriorityQueue<Node> pq = new PriorityQueue<>();
         pq.offer(new Node(1, 0));
 
+        boolean[] isVisited = new boolean[V + 1];
+
         while (!pq.isEmpty()) {
             Node cur = pq.poll();
+
+            if (isVisited[cur.vertex]) {
+                continue;
+            }
+
+            isVisited[cur.vertex] = true;
 
             for (Node temp = adjList[cur.vertex]; temp != null; temp = temp.next) {
                 if (dist[temp.vertex] > dist[cur.vertex] + temp.weight) {
