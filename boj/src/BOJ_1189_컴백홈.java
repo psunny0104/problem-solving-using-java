@@ -32,8 +32,8 @@ public class BOJ_1189_컴백홈 {
     }
 
     private static void search(int cnt, int r, int c) {
-        if (cnt == K) {
-            if (r == 0 && c == C - 1) {
+        if (r == 0 && c == C - 1) {
+            if (cnt == K) {
                 answer++;
             }
             return;
